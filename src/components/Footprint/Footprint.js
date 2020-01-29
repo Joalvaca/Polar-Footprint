@@ -1,5 +1,4 @@
 import React from "react";
-// import Header from "./components/Header/Header";
 
 class Footprint extends React.Component {
   constructor(props) {
@@ -30,7 +29,6 @@ class Footprint extends React.Component {
   render() {
     return (
       <main>
-        {/* <Header /> */}
         <h1>Footprint</h1>
         <form>
           <label>
@@ -63,7 +61,7 @@ class Footprint extends React.Component {
               onChange={this.handleChange}
             />
           </label>
-          <button>submit</button>
+          <button>add</button>
         </form>
       </main>
     );
