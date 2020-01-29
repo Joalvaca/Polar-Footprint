@@ -1,17 +1,18 @@
 import React from "react";
+// import Header from "./components/Header/Header";
 
 class Footprint extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
       productName: "",
       productPrice: "",
-      productSold: ""
+      productSold: "",
+      List: []
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.addItem = this.addItem.bind(this);
   }
 
   handleChange(event) {
@@ -21,7 +22,7 @@ class Footprint extends React.Component {
     });
   }
 
-  handleSubmit(event) {
+  addItem(event) {
     alert("submit");
     event.preventDefault();
   }
@@ -29,8 +30,9 @@ class Footprint extends React.Component {
   render() {
     return (
       <main>
+        {/* <Header /> */}
         <h1>Footprint</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <label>
             name:
             <input
@@ -61,7 +63,7 @@ class Footprint extends React.Component {
               onChange={this.handleChange}
             />
           </label>
-          <input type="submit" value="Submit" />
+          <button>submit</button>
         </form>
       </main>
     );

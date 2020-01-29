@@ -10,26 +10,28 @@ import Resell from "./components/Resell/Resell";
 function App() {
   return (
     <div>
-      <Header />
-
       <Switch>
-        <Route exact path="/homepage">
+        <Route exact path="/">
           <Homepage />
         </Route>
 
         <Route exact path="/intro">
+          <Header />
           <Intro />
         </Route>
 
         <Route exact path="/footprint">
+          <Header />
           <Footprint />
         </Route>
 
         <Route exact path="/contact">
+          <Header />
           <Contact />
         </Route>
 
         <Route exact path="/resell">
+          <Header />
           <Resell />
         </Route>
       </Switch>

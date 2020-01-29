@@ -9,3 +9,14 @@ header {
   -moz-box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1);
   box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1);
 }
+.logo-header {
+  max-width: 100px;
+}
+.links-header {
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
+.links-header :hover {
+  color: #25aae1;
+}

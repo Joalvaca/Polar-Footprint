@@ -1,0 +1,24 @@
+.enter-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.password-box {
+  margin-right: 15px;
+  color: white;
+}
+.password-box:hover {
+  color: black;
+}
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+}
+.logo-name {
+  font-size: 40px;
+  letter-spacing: 3px;
+  color: white;
+  margin-bottom: 20px;
+}
