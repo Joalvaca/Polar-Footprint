@@ -4,26 +4,39 @@ class Footprint extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productName: "",
-      productPrice: "",
-      productSold: "",
-      List: []
+      newItem: "",
+      list: []
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.addItem = this.addItem.bind(this);
   }
 
-  handleChange(event) {
-    const { name, value } = event.target;
+  updateInput(key, value) {
     this.setState({
-      [name]: value
+      [key]: value
     });
   }
 
-  addItem(event) {
-    alert("submit");
-    event.preventDefault();
+  deleteItem(id) {
+    const list = [...this.state.list];
+
+    const updatedList = list.filter(item => item.id !== id);
+
+    this.setState({ list: updatedList });
+  }
+
+  addItem() {
+    const newItem = {
+      id: 2 + Math.random(),
+      value: this.state.newItem.slice()
+    };
+
+    const list = [...this.state.list];
+
+    list.push(newItem);
+
+    this.setState({
+      list,
+      newItem: ""
+    });
   }
 
   render() {
@@ -35,34 +48,25 @@ class Footprint extends React.Component {
             name:
             <input
               type="text"
-              name="productName"
               placeholder="yeezy"
-              value={this.state.productName}
-              onChange={this.handleChange}
+              value={this.state.newItem}
+              onChange={e => this.updateInput("newItem", e.target.value)}
             />
           </label>
-          <label>
-            price:
-            <input
-              type="text"
-              name="productPrice"
-              placeholder="yeezy"
-              value={this.state.productPrice}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            Pricesold:
-            <input
-              type="text"
-              name="productSold"
-              placeholder="yeezy"
-              value={this.state.productSold}
-              onChange={this.handleChange}
-            />
-          </label>
-          <button>add</button>
+          <button onClick={() => this.addItem()}>add</button>
         </form>
+        <br />
+        <br />
+        <ul>
+          {this.state.list.map(item => {
+            return (
+              <li key={item.id}>
+                {item.value}
+                <button onClick={() => this.deleteItem(item.id)}>x</button>
+              </li>
+            );
+          })}
+        </ul>
       </main>
     );
   }
