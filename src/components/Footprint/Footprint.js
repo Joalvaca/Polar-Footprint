@@ -10,44 +10,56 @@ class Footprint extends React.Component {
     };
   }
 
-  updateInput(input) {
+  updateInput(key, input) {
     this.setState({
-      newItem: input
+      [key]: input
     });
   }
 
-  addItem(input) {
-    let listArray = this.state.list;
+  addItem() {
+    let newItem = {
+      id: 1 + Math.random(),
+      value: this.state.newItem.slice()
+    };
 
-    listArray.push(input);
+    const list = [...this.state.list];
+
+    list.push(newItem);
 
     this.setState({
-      list: listArray,
+      list,
       newItem: ""
     });
+  }
+
+  deleteItem(id) {
+    const list = [...this.state.list];
+
+    const updatedList = list.filter(item => item.id !== id);
+
+    this.setState({ list: updatedList });
   }
 
   render() {
     return (
       <main>
         <h1>Footprint</h1>
-        <form>
-          <label>
-            name:
-            <input
-              type="text"
-              placeholder="yeezy"
-              value={this.state.newItem}
-              onChange={e => this.updateInput(e.target.value)}
-            />
-          </label>
-          <button onClick={() => this.addItem(this.state.newItem)}>add</button>
-        </form>
-        <br />
-        <br />
+        <label>
+          name:
+          <input
+            type="text"
+            placeholder="yeezy"
+            value={this.state.newItem}
+            onChange={e => this.updateInput("newItem", e.target.value)}
+          />
+        </label>
+        <button onClick={() => this.addItem(this.state.newItem)}>add</button>
         <ul>
           {this.state.list.map(item => (
-            <li>{item}</li>
+            <li key={item.id}>
+              {item.value}
+              <button onClick={() => this.deleteItem(item.id)}>X</button>
+            </li>
           ))}
         </ul>
       </main>
