@@ -20,12 +20,13 @@ class Footprint extends React.Component {
   addItem() {
     let newItem = {
       id: 1 + Math.random(),
-      value: this.state.newItem.slice()
+      newItem: this.state.newItem,
+      date: this.state.date
     };
 
-    const list = [...this.state.list];
+    const list = [...this.state.list, newItem];
 
-    list.push(newItem);
+    // list.push(newItem);
 
     this.setState({
       list,
@@ -64,16 +65,12 @@ class Footprint extends React.Component {
             onChange={e => this.updateInput("date", e.target.value)}
           />
         </label>
-        <button
-          onClick={() => this.addItem(this.state.newItem, this.state.date)}
-        >
-          add
-        </button>
+        <button onClick={() => this.addItem()}>add</button>
         <ul>
           {this.state.list.map(item => (
             <li key={item.id}>
-              {item.value}
-              {item.value}
+              {item.newItem}
+              {item.date}
               <button onClick={() => this.deleteItem(item.id)}>X</button>
             </li>
           ))}
