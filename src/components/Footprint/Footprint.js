@@ -1,4 +1,5 @@
 import React from "react";
+import "./Footprint.css";
 
 class Footprint extends React.Component {
   constructor(props) {
@@ -7,6 +8,8 @@ class Footprint extends React.Component {
     this.state = {
       newItem: "",
       date: "",
+      purchasePrice: "",
+      sellingPrice: "",
       list: []
     };
   }
@@ -21,7 +24,9 @@ class Footprint extends React.Component {
     let newItem = {
       id: 1 + Math.random(),
       newItem: this.state.newItem,
-      date: this.state.date
+      date: this.state.date,
+      purchasePrice: this.state.purchasePrice,
+      sellingPrice: this.state.sellingPrice
     };
 
     const list = [...this.state.list, newItem];
@@ -31,7 +36,9 @@ class Footprint extends React.Component {
     this.setState({
       list,
       newItem: "",
-      date: ""
+      date: "",
+      purchasePrice: "",
+      sellingPrice: ""
     });
   }
 
@@ -51,26 +58,49 @@ class Footprint extends React.Component {
           name:
           <input
             type="text"
-            placeholder="yeezy"
+            placeholder="Item Name"
             value={this.state.newItem}
             onChange={e => this.updateInput("newItem", e.target.value)}
+          />
+        </label>
+        <label>
+          date
+          <input
+            type="text"
+            placeholder="Date Purchased"
+            value={this.state.date}
+            onChange={e => this.updateInput("date", e.target.value)}
           />
         </label>
         <label>
           name:
           <input
             type="text"
-            placeholder="date"
-            name={this.state.date}
-            onChange={e => this.updateInput("date", e.target.value)}
+            placeholder="Purchase Price"
+            value={this.state.purchasePrice}
+            onChange={e => this.updateInput("purchasePrice", e.target.value)}
+          />
+        </label>
+        <label>
+          name:
+          <input
+            type="text"
+            placeholder="Selling Price"
+            value={this.state.sellingPrice}
+            onChange={e => this.updateInput("sellingPrice", e.target.value)}
           />
         </label>
         <button onClick={() => this.addItem()}>add</button>
-        <ul>
+        <ul className="list-render">
           {this.state.list.map(item => (
             <li key={item.id}>
               {item.newItem}
+
               {item.date}
+
+              {item.purchasePrice}
+
+              {item.sellingPrice}
               <button onClick={() => this.deleteItem(item.id)}>X</button>
             </li>
           ))}
