@@ -3,38 +3,26 @@ import React from "react";
 class Footprint extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       newItem: "",
       list: []
     };
   }
 
-  updateInput(key, value) {
+  updateInput(input) {
     this.setState({
-      [key]: value
+      newItem: input
     });
   }
 
-  deleteItem(id) {
-    const list = [...this.state.list];
+  addItem(input) {
+    let listArray = this.state.list;
 
-    const updatedList = list.filter(item => item.id !== id);
-
-    this.setState({ list: updatedList });
-  }
-
-  addItem() {
-    const newItem = {
-      id: 2 + Math.random(),
-      value: this.state.newItem.slice()
-    };
-
-    const list = [...this.state.list];
-
-    list.push(newItem);
+    listArray.push(input);
 
     this.setState({
-      list,
+      list: listArray,
       newItem: ""
     });
   }
@@ -50,22 +38,17 @@ class Footprint extends React.Component {
               type="text"
               placeholder="yeezy"
               value={this.state.newItem}
-              onChange={e => this.updateInput("newItem", e.target.value)}
+              onChange={e => this.updateInput(e.target.value)}
             />
           </label>
-          <button onClick={() => this.addItem()}>add</button>
+          <button onClick={() => this.addItem(this.state.newItem)}>add</button>
         </form>
         <br />
         <br />
         <ul>
-          {this.state.list.map(item => {
-            return (
-              <li key={item.id}>
-                {item.value}
-                <button onClick={() => this.deleteItem(item.id)}>x</button>
-              </li>
-            );
-          })}
+          {this.state.list.map(item => (
+            <li>{item}</li>
+          ))}
         </ul>
       </main>
     );
