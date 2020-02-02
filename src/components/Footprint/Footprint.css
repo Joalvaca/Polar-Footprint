@@ -1,7 +1,23 @@
 .list-render {
-  border: 1px solid black;
+  list-style: none;
 }
-li {
-  border: 1px soldi black;
-  margin-left: 80px;
+.list-items {
+  color: white;
+  margin: 30px;
+}
+.master-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 1px solid black;
+  margin: 5px;
+}
+.delete-button {
+  width: 50px;
+  height: 50px;
+}
+.polar-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
