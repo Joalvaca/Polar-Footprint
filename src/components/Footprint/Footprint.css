@@ -5,6 +5,10 @@
   color: white;
   margin: 30px;
 }
+.master-list {
+  display: flex;
+  justify-content: center;
+}
 .master-items {
   display: flex;
   flex-direction: row;
@@ -13,11 +17,25 @@
   margin: 5px;
 }
 .delete-button {
-  width: 50px;
-  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .polar-form {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+.intro-print {
+  text-align: center;
+}
+.label-print {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.polar-add {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }

@@ -53,10 +53,10 @@ class Footprint extends React.Component {
   render() {
     return (
       <main>
+        <h1 className="intro-print">Footprint</h1>
         <div className="polar-form">
-          <h1>Footprint</h1>
-          <label>
-            name:
+          <label className="label-print">
+            Name:
             <input
               type="text"
               placeholder="Item Name"
@@ -64,8 +64,8 @@ class Footprint extends React.Component {
               onChange={e => this.updateInput("newItem", e.target.value)}
             />
           </label>
-          <label>
-            Date Purchased
+          <label className="label-print">
+            Date Purchased:
             <input
               type="text"
               placeholder="Date Purchased"
@@ -73,8 +73,8 @@ class Footprint extends React.Component {
               onChange={e => this.updateInput("date", e.target.value)}
             />
           </label>
-          <label>
-            Purchase Price
+          <label className="label-print">
+            Purchase Price:
             <input
               type="text"
               placeholder="Purchase Price"
@@ -82,8 +82,8 @@ class Footprint extends React.Component {
               onChange={e => this.updateInput("purchasePrice", e.target.value)}
             />
           </label>
-          <label>
-            Selling Price
+          <label className="label-print">
+            Selling Price:
             <input
               type="text"
               placeholder="Selling Price"
@@ -91,34 +91,35 @@ class Footprint extends React.Component {
               onChange={e => this.updateInput("sellingPrice", e.target.value)}
             />
           </label>
-          <button onClick={() => this.addItem()}>add</button>
+          <div className="polar-add">
+            <button onClick={() => this.addItem()}>add</button>
+          </div>
         </div>
         <ul className="list-render">
           {this.state.list.map(item => (
             <li key={item.id}>
-              <div className="master-items">
-                <div className="list-items">
-                  <p>Product Name</p>
-                  {item.newItem}
+              <div className="master-list">
+                <div className="master-items">
+                  <div className="list-items">
+                    <p>Product Name</p>
+                    {item.newItem}
+                  </div>
+                  <div className="list-items">
+                    <p>Date Purchased</p>
+                    {item.date}
+                  </div>
+                  <div className="list-items">
+                    <p>Purchase Price</p>
+                    {item.purchasePrice}
+                  </div>
+                  <div className="list-items">
+                    <p>Selling Price</p>
+                    {item.sellingPrice}
+                  </div>
+                  <div className="delete-button">
+                    <button onClick={() => this.deleteItem(item.id)}>X</button>
+                  </div>
                 </div>
-                <div className="list-items">
-                  <p>Date Purchased</p>
-                  {item.date}
-                </div>
-                <div className="list-items">
-                  <p>Purchase Price</p>
-                  {item.purchasePrice}
-                </div>
-                <div className="list-items">
-                  <p>Selling Price</p>
-                  {item.sellingPrice}
-                </div>
-                <button
-                  className="delete-button"
-                  onClick={() => this.deleteItem(item.id)}
-                >
-                  X
-                </button>
               </div>
             </li>
           ))}
