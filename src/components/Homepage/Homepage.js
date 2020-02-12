@@ -10,9 +10,9 @@ function Homepage() {
         <Link
           className="password-box"
           style={{ textDecoration: "none" }}
-          to="Intro"
+          to="LoginForm"
         >
-          <h1>Enter Using Password</h1>
+          <h1>Login In</h1>
         </Link>
       </div>
       <div className="logo-container">
