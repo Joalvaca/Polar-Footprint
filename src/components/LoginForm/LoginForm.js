@@ -15,9 +15,7 @@ class LoginForm extends React.Component {
   state = { error: null };
 
   handleLoginSuccess = () => {
-    const { location, history } = this.props;
-    const destination = (location.state || {}).from || "/Intro";
-    history.push(destination);
+    this.props.history.push("/intro");
   };
 
   handleSubmitJwtAuth = ev => {
@@ -25,14 +23,14 @@ class LoginForm extends React.Component {
     this.setState({ error: null });
     const { user_name, password } = ev.target;
     AuthApiService.postLogin({
-      user_name: user_name.name,
+      user_name: user_name.value,
       password: password.value
     })
       .then(res => {
         user_name.value = "";
         password.value = "";
         TokenService.saveAuthToken(res.authToken);
-        TokenService.saveUserId(res.userId);
+        //TokenService.saveUserId(res.userId);
         this.handleLoginSuccess();
       })
       .catch(res => {
@@ -44,14 +42,14 @@ class LoginForm extends React.Component {
     return (
       <div>
         <div className="login-header">
-          <Link style={{ textDecoration: "none" }} to="RegistrationForm">
+          <Link style={{ textDecoration: "none" }} to="/register">
             <h1 className="register-link">Register</h1>
           </Link>
-          <Link style={{ textDecoration: "none" }} to="LoginForm">
+          <Link style={{ textDecoration: "none" }} to="/login">
             <h1 className="login-link">login</h1>
           </Link>
           <Link to="/">homepage </Link>
-          <Link to="Intro">Intro</Link>
+          <Link to="/intro">Intro</Link>
         </div>
         <div className="logo-container">
           <img src={Logo} alt="logo" />

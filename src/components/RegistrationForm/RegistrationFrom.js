@@ -14,9 +14,7 @@ class RegistrationForm extends React.Component {
   state = { error: null };
 
   handleRegistrationSuccess = () => {
-    const { location, history } = this.props;
-    const destination = (location.state || {}).from || "/login";
-    history.push(destination);
+    this.props.history.push("/login");
   };
 
   handleSubmit = ev => {
@@ -34,6 +32,9 @@ class RegistrationForm extends React.Component {
       password: password.value
     })
       .then(res => {
+        /*if(res.error){
+              throw Error(res.error)
+          }*/
         first_name.value = "";
         last_name.value = "";
         user_name.value = "";
@@ -41,30 +42,35 @@ class RegistrationForm extends React.Component {
         this.handleRegistrationSuccess();
       })
       .catch(res => {
-        this.setState({ error: null });
+        this.setState({ error: res.error });
       });
   };
   render() {
     return (
       <div>
         <div className="login-header">
-          <Link style={{ textDecoration: "none" }} to="RegistrationForm">
+          <Link style={{ textDecoration: "none" }} to="/register">
             <h1 className="register-link">Register</h1>
           </Link>
-          <Link style={{ textDecoration: "none" }} to="LoginForm">
+          <Link style={{ textDecoration: "none" }} to="/login">
             <h1 className="login-link">Login</h1>
           </Link>
         </div>
         <div className="logo-container">
           <img src={Logo} alt="logo" />
           <div>
-            <form onSubmit={this.handleRegistrationSuccess}>
+            <form onSubmit={this.handleSubmit}>
+              {this.state.error ? (
+                <p className="error">{this.state.error}</p>
+              ) : (
+                ""
+              )}
               <div className="login-form">
                 <div className="login-inputs">
                   <label>First Name</label>
-                  <input required name="user_name" type="text"></input>
+                  <input required name="first_name" type="text"></input>
                   <label>last Name</label>
-                  <input required name="user_name" type="text"></input>
+                  <input required name="last_name" type="text"></input>
                   <label>Username</label>
                   <input required name="user_name" type="text"></input>
                   <label>Password</label>

@@ -20,3 +20,6 @@ header {
 .links-header :hover {
   color: #25aae1;
 }
+.links-header.active {
+  border-bottom: 3px solid yellow;
+}

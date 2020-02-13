@@ -10,7 +10,7 @@ function Homepage() {
         <Link
           className="password-box"
           style={{ textDecoration: "none" }}
-          to="LoginForm"
+          to="login"
         >
           <h1>Login In</h1>
         </Link>
@@ -22,5 +22,14 @@ function Homepage() {
     </main>
   );
 }
+
+/*
+
+{name:'',content:'',image:'one.jpg'}
+<img src={`/images/thumbnails/${res.image}`}
+image: https://www.google.com/logo.png
+<img src={res.image} />
+
+*/
 
 export default Homepage;

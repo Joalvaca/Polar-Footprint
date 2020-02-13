@@ -3,40 +3,33 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import Logo from "./polarchef.png";
 
-function Header() {
+function Header(props) {
+  const headerLinks = {
+    Intro: "/intro",
+    FootPrint: "/footprint",
+    Contact: "/contact",
+    Resell: "/resell"
+  };
+
   return (
     <header>
       <Link to="/">
         <img className="logo-header" src={Logo} alt="logo" />
       </Link>
-      <Link
-        className="links-header"
-        style={{ textDecoration: "none" }}
-        to="/intro"
-      >
-        <p>Intro</p>
-      </Link>
-      <Link
-        className="links-header"
-        style={{ textDecoration: "none" }}
-        to="/footprint"
-      >
-        <p>FootPrint</p>
-      </Link>
-      <Link
-        className="links-header"
-        style={{ textDecoration: "none" }}
-        to="/contact"
-      >
-        <p>Contact</p>
-      </Link>
-      <Link
-        className="links-header"
-        style={{ textDecoration: "none" }}
-        to="/resell"
-      >
-        <p>Resell</p>
-      </Link>
+      {Object.entries(headerLinks).map(link => {
+        return (
+          <Link
+            className={
+              props.location.pathname.indexOf(link[1]) === 0
+                ? "links-header active"
+                : "links-header"
+            }
+            to={link[1]}
+          >
+            <p>{link[0]}</p>
+          </Link>
+        );
+      })}
     </header>
   );
 }

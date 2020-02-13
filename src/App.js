@@ -12,39 +12,31 @@ import RegistrationForm from "./components/RegistrationForm/RegistrationFrom";
 function App() {
   return (
     <div>
-      <Switch>
-        <Route exact path="/">
-          <Homepage />
-        </Route>
+      <Route exact path="/">
+        <Homepage />
+      </Route>
 
-        <Route exact path="/loginForm">
-          <LoginForm />
-        </Route>
+      <Route
+        path={["/intro", "/footprint", "/contact", "/resell"]}
+        component={Header}
+      />
 
-        <Route exact path="/RegistrationForm">
-          <RegistrationForm />
-        </Route>
+      <Route path="/login" component={LoginForm} />
 
-        <Route exact path="/intro">
-          <Header />
-          <Intro />
-        </Route>
+      <Route path="/register" component={RegistrationForm} />
 
-        <Route exact path="/footprint">
-          <Header />
-          <Footprint />
-        </Route>
+      <Route exact path="/intro" component={Intro} />
+      <Route path="/intro/:intro_id" component={Intro} />
 
-        <Route exact path="/contact">
-          <Header />
-          <Contact />
-        </Route>
+      <Route path="/footprint" component={Footprint} />
 
-        <Route exact path="/resell">
-          <Header />
-          <Resell />
-        </Route>
-      </Switch>
+      <Route path="/contact">
+        <Contact />
+      </Route>
+
+      <Route path="/resell">
+        <Resell />
+      </Route>
     </div>
   );
 }
