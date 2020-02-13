@@ -19,9 +19,9 @@ class RegistrationForm extends React.Component {
     history.push(destination);
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    const { first_name, last_name, user_name, password } = e.target;
+  handleSubmit = ev => {
+    ev.preventDefault();
+    const { first_name, last_name, user_name, password } = ev.target;
 
     this.setState({
       error: null
@@ -58,7 +58,7 @@ class RegistrationForm extends React.Component {
         <div className="logo-container">
           <img src={Logo} alt="logo" />
           <div>
-            <form>
+            <form onSubmit={this.handleRegistrationSuccess}>
               <div className="login-form">
                 <div className="login-inputs">
                   <label>First Name</label>
@@ -68,7 +68,7 @@ class RegistrationForm extends React.Component {
                   <label>Username</label>
                   <input required name="user_name" type="text"></input>
                   <label>Password</label>
-                  <input required name="password" type="text"></input>
+                  <input required name="password" type="password"></input>
                 </div>
               </div>
               <button type="submit">Register</button>

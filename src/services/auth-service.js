@@ -1,4 +1,5 @@
 import config from "../config";
+
 const AuthApiService = {
   postLogin({ user_name, password }) {
     return fetch(`${config.API_ENDPOINT}/auth/login`, {

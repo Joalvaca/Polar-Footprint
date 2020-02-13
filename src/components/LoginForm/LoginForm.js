@@ -16,14 +16,14 @@ class LoginForm extends React.Component {
 
   handleLoginSuccess = () => {
     const { location, history } = this.props;
-    const destination = (location.state || {}).from || "/RegistrationForm";
+    const destination = (location.state || {}).from || "/Intro";
     history.push(destination);
   };
 
-  handleSubmitJwtAuth = e => {
-    e.preventDefault();
+  handleSubmitJwtAuth = ev => {
+    ev.preventDefault();
     this.setState({ error: null });
-    const { user_name, password } = e.target;
+    const { user_name, password } = ev.target;
     AuthApiService.postLogin({
       user_name: user_name.name,
       password: password.value
@@ -56,13 +56,13 @@ class LoginForm extends React.Component {
         <div className="logo-container">
           <img src={Logo} alt="logo" />
           <div>
-            <form>
+            <form onSubmit={this.handleSubmitJwtAuth}>
               <div className="login-form">
                 <div className="login-inputs">
                   <label>Username</label>
                   <input required name="user_name" type="text"></input>
                   <label>Password</label>
-                  <input required name="password" type="text"></input>
+                  <input required name="password" type="password"></input>
                 </div>
               </div>
               <button type="submit">Login</button>
