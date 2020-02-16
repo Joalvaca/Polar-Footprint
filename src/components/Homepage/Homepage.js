@@ -12,7 +12,7 @@ function Homepage() {
           style={{ textDecoration: "none" }}
           to="login"
         >
-          <h1>Login In</h1>
+          <h1>Login</h1>
         </Link>
       </div>
       <div className="logo-container">

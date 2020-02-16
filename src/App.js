@@ -30,13 +30,8 @@ function App() {
 
       <Route path="/footprint" component={Footprint} />
 
-      <Route path="/contact">
-        <Contact />
-      </Route>
-
-      <Route path="/resell">
-        <Resell />
-      </Route>
+      <Route path="/contact" component={Contact} />
+      <Route path="/resell" component={Resell} />
     </div>
   );
 }

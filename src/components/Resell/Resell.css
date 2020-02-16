@@ -1,0 +1,12 @@
+.resell-text {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 600;
+  margin-top: 240px;
+  width: 90%;
+}
+.resell-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
