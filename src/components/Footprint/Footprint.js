@@ -58,6 +58,7 @@ class Footprint extends React.Component {
           <label className="label-print">
             Name:
             <input
+              className="print-box"
               type="text"
               placeholder="Item Name"
               value={this.state.newItem}
@@ -67,6 +68,7 @@ class Footprint extends React.Component {
           <label className="label-print">
             Date Purchased:
             <input
+              className="print-box"
               type="text"
               placeholder="Date Purchased"
               value={this.state.date}
@@ -76,6 +78,8 @@ class Footprint extends React.Component {
           <label className="label-print">
             Purchase Price:
             <input
+              className="print-box"
+              required
               type="text"
               placeholder="Purchase Price"
               value={this.state.purchasePrice}
@@ -85,6 +89,7 @@ class Footprint extends React.Component {
           <label className="label-print">
             Selling Price:
             <input
+              className="print-box"
               type="text"
               placeholder="Selling Price"
               value={this.state.sellingPrice}
@@ -92,7 +97,9 @@ class Footprint extends React.Component {
             />
           </label>
           <div className="polar-add">
-            <button onClick={() => this.addItem()}>add</button>
+            <button className="button" onClick={() => this.addItem()}>
+              add
+            </button>
           </div>
         </div>
         <ul className="list-render">
@@ -117,7 +124,12 @@ class Footprint extends React.Component {
                     {item.sellingPrice}
                   </div>
                   <div className="delete-button">
-                    <button onClick={() => this.deleteItem(item.id)}>X</button>
+                    <button
+                      className="button"
+                      onClick={() => this.deleteItem(item.id)}
+                    >
+                      X
+                    </button>
                   </div>
                 </div>
               </div>

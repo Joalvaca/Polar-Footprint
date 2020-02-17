@@ -1,16 +1,23 @@
 import React from "react";
+import Goat from "./goatlogo.png";
+import Stockx from "./stocklogo.png";
+import "./Resell.css";
 
 function Resell() {
   return (
     <main>
-      <div className="intro-container">
-        <p className="intro-text">
-          Welcome to Polar Footprints, This App is designed to help keep track
-          of your inventory, so that you can better manage you time, money, and
-          stock. Please use the above inventory tabs to propery guide yourself
-          to the app, Enjoy!
-        </p>
+      <div className="resell-container">
+        <a href="https://stockx.com/" target="_blank">
+          <img className="stockx-logo" src={Stockx} alt="stockxlogo" />
+        </a>
+        <a href="https://www.goat.com/" target="_blank">
+          <img className="goat-logo" src={Goat} alt="goatlogo" />
+        </a>
       </div>
+      <p className="intro-text">
+        Use the links above to guide your way through the most popular resell
+        sites.
+      </p>
     </main>
   );
 }

@@ -9,6 +9,11 @@ import Resell from "./components/Resell/Resell";
 import LoginForm from "./components/LoginForm/LoginForm";
 import RegistrationForm from "./components/RegistrationForm/RegistrationFrom";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+
+library.add(fab);
+
 function App() {
   return (
     <div>
