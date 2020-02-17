@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footprint.css";
+import PolarBlock from "./polarblock.png";
 
 class Footprint extends React.Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class Footprint extends React.Component {
     });
   }
 
-  addItem() {
+  addItem = e => {
+    e.preventDefault();
     let newItem = {
       id: 1 + Math.random(),
       newItem: this.state.newItem,
@@ -40,7 +42,7 @@ class Footprint extends React.Component {
       purchasePrice: "",
       sellingPrice: ""
     });
-  }
+  };
 
   deleteItem(id) {
     const list = [...this.state.list];
@@ -53,54 +55,60 @@ class Footprint extends React.Component {
   render() {
     return (
       <main>
-        <h1 className="intro-print">Footprint</h1>
+        <div className="polar-block-pic">
+          <img className="polar-block" src={PolarBlock} alt="polarblock" />
+        </div>
         <div className="polar-form">
-          <label className="label-print">
-            Name:
-            <input
-              className="print-box"
-              type="text"
-              placeholder="Item Name"
-              value={this.state.newItem}
-              onChange={e => this.updateInput("newItem", e.target.value)}
-            />
-          </label>
-          <label className="label-print">
-            Date Purchased:
-            <input
-              className="print-box"
-              type="text"
-              placeholder="Date Purchased"
-              value={this.state.date}
-              onChange={e => this.updateInput("date", e.target.value)}
-            />
-          </label>
-          <label className="label-print">
-            Purchase Price:
-            <input
-              className="print-box"
-              required
-              type="text"
-              placeholder="Purchase Price"
-              value={this.state.purchasePrice}
-              onChange={e => this.updateInput("purchasePrice", e.target.value)}
-            />
-          </label>
-          <label className="label-print">
-            Selling Price:
-            <input
-              className="print-box"
-              type="text"
-              placeholder="Selling Price"
-              value={this.state.sellingPrice}
-              onChange={e => this.updateInput("sellingPrice", e.target.value)}
-            />
-          </label>
-          <div className="polar-add">
-            <button className="button" onClick={() => this.addItem()}>
-              add
-            </button>
-          </div>
+          <form onSubmit={this.addItem}>
+            <label className="label-print">
+              Name:
+              <input
+                className="print-box"
+                type="text"
+                placeholder="Item Name"
+                value={this.state.newItem}
+                onChange={e => this.updateInput("newItem", e.target.value)}
+              />
+            </label>
+            <label className="label-print">
+              Date Purchased:
+              <input
+                className="print-box"
+                type="date"
+                placeholder="Date Purchased"
+                value={this.state.date}
+                onChange={e => this.updateInput("date", e.target.value)}
+              />
+            </label>
+            <label className="label-print">
+              Purchase Price:
+              <input
+                className="print-box"
+                required
+                type="number"
+                placeholder="Purchase Price"
+                value={this.state.purchasePrice}
+                onChange={e =>
+                  this.updateInput("purchasePrice", e.target.value)
+                }
+              />
+            </label>
+            <label className="label-print">
+              Selling Price:
+              <input
+                className="print-box"
+                type="number"
+                placeholder="Selling Price"
+                value={this.state.sellingPrice}
+                onChange={e => this.updateInput("sellingPrice", e.target.value)}
+              />
+            </label>
+            <div className="polar-add">
+              <button className="button" type="submit">
+                add
+              </button>
+            </div>
+          </form>
         </div>
         <ul className="list-render">
           {this.state.list.map(item => (
@@ -116,12 +124,10 @@ class Footprint extends React.Component {
                     {item.date}
                   </div>
                   <div className="list-items">
-                    <p>Purchase Price</p>
-                    {item.purchasePrice}
+                    <p>Purchase Price</p>${item.purchasePrice}
                   </div>
                   <div className="list-items">
-                    <p>Selling Price</p>
-                    {item.sellingPrice}
+                    <p>Selling Price</p>${item.sellingPrice}
                   </div>
                   <div className="delete-button">
                     <button

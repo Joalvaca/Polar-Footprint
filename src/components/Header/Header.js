@@ -16,9 +16,10 @@ function Header(props) {
       <Link to="/">
         <img className="logo-header" src={Logo} alt="logo" />
       </Link>
-      {Object.entries(headerLinks).map(link => {
+      {Object.entries(headerLinks).map((link, i) => {
         return (
           <Link
+            key={`header-link-${i}`}
             className={
               props.location.pathname.indexOf(link[1]) === 0
                 ? "links-header active"

@@ -56,7 +56,7 @@ class RegistrationForm extends React.Component {
             <h1 className="login-link">Login</h1>
           </Link>
         </div>
-        <div className="logo-container">
+        <div className="register-container">
           <img src={Logo} alt="logo" />
           <div>
             <form onSubmit={this.handleSubmit}>
@@ -67,17 +67,39 @@ class RegistrationForm extends React.Component {
               )}
               <div className="login-form">
                 <div className="login-inputs">
-                  <label>First Name</label>
-                  <input required name="first_name" type="text"></input>
-                  <label>last Name</label>
-                  <input required name="last_name" type="text"></input>
-                  <label>Username</label>
-                  <input required name="user_name" type="text"></input>
-                  <label>Password</label>
-                  <input required name="password" type="password"></input>
+                  <label className="register-label">First Name:</label>
+                  <input
+                    className="register-box"
+                    required
+                    name="first_name"
+                    type="text"
+                  ></input>
+                  <label className="register-label">last Name:</label>
+                  <input
+                    className="register-box"
+                    required
+                    name="last_name"
+                    type="text"
+                  ></input>
+                  <label className="register-label">Username:</label>
+                  <input
+                    className="register-box"
+                    required
+                    name="user_name"
+                    type="text"
+                  ></input>
+                  <label className="register-label">Password:</label>
+                  <input
+                    className="register-box"
+                    required
+                    name="password"
+                    type="password"
+                  ></input>
                 </div>
               </div>
-              <button type="submit">Register</button>
+              <button className="register-button" type="submit">
+                Register
+              </button>
             </form>
           </div>
         </div>

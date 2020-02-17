@@ -57,13 +57,26 @@ class LoginForm extends React.Component {
             <form onSubmit={this.handleSubmitJwtAuth}>
               <div className="login-form">
                 <div className="login-inputs">
-                  <label>Username</label>
-                  <input required name="user_name" type="text"></input>
-                  <label>Password</label>
-                  <input required name="password" type="password"></input>
+                  <p className="error">{this.state.error}</p>
+                  <label className="label-text">Username:</label>
+                  <input
+                    className="form-box"
+                    required
+                    name="user_name"
+                    type="text"
+                  ></input>
+                  <label className="label-text">Password:</label>
+                  <input
+                    className="form-box"
+                    required
+                    name="password"
+                    type="password"
+                  ></input>
                 </div>
               </div>
-              <button type="submit">Login</button>
+              <button className="login-button" type="submit">
+                Login
+              </button>
             </form>
           </div>
         </div>
