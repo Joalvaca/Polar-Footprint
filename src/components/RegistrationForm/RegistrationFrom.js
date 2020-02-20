@@ -11,6 +11,7 @@ class RegistrationForm extends React.Component {
       push: () => {}
     }
   };
+
   state = { error: null };
 
   handleRegistrationSuccess = () => {

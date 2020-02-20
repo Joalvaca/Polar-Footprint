@@ -7,12 +7,21 @@ class Footprint extends React.Component {
     super(props);
 
     this.state = {
-      newItem: "",
-      date: "",
-      purchasePrice: "",
-      sellingPrice: "",
+      product_name: "",
+      date_purchased: "",
+      purchase_price: "",
+      sold_price: "",
       list: []
     };
+  }
+
+  componentDidMount() {
+    fetch(`{config.API_ENDPOINT}/footprints`)
+      .then(response => response.json())
+      .then(prints => {
+        console.log(prints);
+        this.setState({ list: prints });
+      });
   }
 
   updateInput(key, input) {
@@ -23,24 +32,22 @@ class Footprint extends React.Component {
 
   addItem = e => {
     e.preventDefault();
+
     let newItem = {
-      id: 1 + Math.random(),
-      newItem: this.state.newItem,
-      date: this.state.date,
-      purchasePrice: this.state.purchasePrice,
-      sellingPrice: this.state.sellingPrice
+      product_name: this.state.product_name,
+      date_purchased: this.state.date_purchased,
+      purchase_price: this.state.purchase_price,
+      sold_price: this.state.sold_price
     };
 
     const list = [...this.state.list, newItem];
 
-    // list.push(newItem);
-
     this.setState({
       list,
-      newItem: "",
-      date: "",
-      purchasePrice: "",
-      sellingPrice: ""
+      product_name: "",
+      date_purchased: "",
+      purchase_price: "",
+      sold_price: ""
     });
   };
 
@@ -64,20 +71,24 @@ class Footprint extends React.Component {
               Name:
               <input
                 className="print-box"
+                required
                 type="text"
                 placeholder="Item Name"
-                value={this.state.newItem}
-                onChange={e => this.updateInput("newItem", e.target.value)}
+                value={this.state.product_name}
+                onChange={e => this.updateInput("product_name", e.target.value)}
               />
             </label>
             <label className="label-print">
               Date Purchased:
               <input
                 className="print-box"
+                required
                 type="date"
                 placeholder="Date Purchased"
-                value={this.state.date}
-                onChange={e => this.updateInput("date", e.target.value)}
+                value={this.state.date_purchased}
+                onChange={e =>
+                  this.updateInput("date_purchased", e.target.value)
+                }
               />
             </label>
             <label className="label-print">
@@ -87,9 +98,9 @@ class Footprint extends React.Component {
                 required
                 type="number"
                 placeholder="Purchase Price"
-                value={this.state.purchasePrice}
+                value={this.state.purchase_price}
                 onChange={e =>
-                  this.updateInput("purchasePrice", e.target.value)
+                  this.updateInput("purchase_price", e.target.value)
                 }
               />
             </label>
@@ -97,10 +108,11 @@ class Footprint extends React.Component {
               Selling Price:
               <input
                 className="print-box"
+                required
                 type="number"
-                placeholder="Selling Price"
-                value={this.state.sellingPrice}
-                onChange={e => this.updateInput("sellingPrice", e.target.value)}
+                placeholder="Sold Price"
+                value={this.state.sold_price}
+                onChange={e => this.updateInput("sold_price", e.target.value)}
               />
             </label>
             <div className="polar-add">
@@ -117,17 +129,19 @@ class Footprint extends React.Component {
                 <div className="master-items">
                   <div className="list-items">
                     <p>Product Name</p>
-                    {item.newItem}
+
+                    {item.product_name}
                   </div>
                   <div className="list-items">
                     <p>Date Purchased</p>
-                    {item.date}
+
+                    {item.date_purchased}
                   </div>
                   <div className="list-items">
-                    <p>Purchase Price</p>${item.purchasePrice}
+                    <p>Purchase Price</p>${item.purchase_price}
                   </div>
                   <div className="list-items">
-                    <p>Selling Price</p>${item.sellingPrice}
+                    <p>Selling Price</p>${item.sold_price}
                   </div>
                   <div className="delete-button">
                     <button
