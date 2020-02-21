@@ -3,41 +3,52 @@ import config from "../config";
 const FootPrintApiService = {
   getAllPrints() {
     return fetch(`${config.API_ENDPOINT}/footprints`, {
-      headers: {}
+      method: "GET",
+      headers: { "content-type": "application/json" }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  getPrint(id) {
-    return fetch(`${config.API_ENDPOINT}/footprints/${id}`, {
-      headers: {}
+  getPrint(printId) {
+    return fetch(`${config.API_ENDPOINT}/footprints/${printId}`, {
+      method: "GET",
+      headers: { "content-type": "application/json" }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  deletePrint(id) {
-    return fetch(`${config.API_ENDPOINT}/footprints/${id}/`, {
-      headers: {}
+  deletePrint(printId) {
+    return fetch(`${config.API_ENDPOINT}/footprints/${printId}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json"
+      }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  updatePrint(id) {
-    return fetch(`${config.API_ENDPOINT}/footprints/${id}/`, {
-      headers: {}
+  updatePrint(printId) {
+    return fetch(`${config.API_ENDPOINT}/footprints/${printId}/`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json"
+      }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  postPrints(id, product_name, date_purchased, date_sold, sold_price) {
+  postPrints(product_name, date_purchased, date_sold, sold_price) {
     return fetch(`${config.API_ENDPOINT}/footprints`, {
       method: "POST",
       headers: {
         "content-type": "application/json"
       },
       body: JSON.stringify({
-        article_id: articleId,
-        text
+        print_id: printId,
+        product_name,
+        date_purchased,
+        date_sold,
+        sold_price
       })
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()

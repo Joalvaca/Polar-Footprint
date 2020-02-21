@@ -17,13 +17,17 @@ class Footprint extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/footprints`)
-      .then(response => response.json())
-      .then(prints => {
-        console.log(prints);
-        this.setState({ list: prints });
-      });
+  // componentDidMount() {
+  //   fetch(`${config.API_ENDPOINT}/footprints`)
+  //     .then(response => response.json())
+  //     .then(prints => {
+  //       console.log(prints);
+  //       this.setState({ list: prints });
+  //     });
+  // }
+
+  componentWillMount() {
+    fetch(`${config.API_ENDPOINT}/footprints`);
   }
 
   updateInput(key, input) {
