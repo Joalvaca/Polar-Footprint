@@ -27,7 +27,7 @@ class Footprint extends React.Component {
   //     });
   // }
 
-  componentWillMount() {
+  componentDidMount() {
     // FootPrintApiService.getAllPrints()
     //   .then(data => {
     //     this.setState({ list: data });
