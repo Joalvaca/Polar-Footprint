@@ -49,16 +49,24 @@ const FootPrintApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  postPrints(product_name, date_purchased, purchase_price, sold_price) {
+  postPrints(
+    product_name,
+    date_purchased,
+    purchase_price,
+    date_sold,
+    sold_price
+  ) {
     return fetch(`${config.API_ENDPOINT}/footprints`, {
       method: "POST",
       headers: {
         "content-type": "application/json"
       },
       body: JSON.stringify({
-        print_id: product_name,
+        //print_id: product_name,
+        product_name,
         date_purchased,
         purchase_price,
+        date_sold,
         sold_price
       })
     }).then(res =>

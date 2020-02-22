@@ -28,21 +28,17 @@ class Footprint extends React.Component {
   // }
 
   componentDidMount() {
-    // FootPrintApiService.getAllPrints()
-    //   .then(data => {
-    //     this.setState({ list: data });
-    //   })
-    //   .catch(err => console.error(err));
+    FootPrintApiService.getAllPrints()
+      .then(data => {
+        this.setState({ list: data });
+        console.log(data);
+      })
+      .catch(err => console.error(err));
 
-    FootPrintApiService.getPrint().then(data => {
-      this.setState({ list: data });
-    });
-
-    // FootPrintApiService.updatePrint()
-    //   .then(data => {
-    //     this.setState({ list: data });
-    //   })
-    //   .catch(err => console.error(err));
+    // FootPrintApiService.getPrint().then(data => {
+    //   this.setState({ list: data });
+    //   console.log(data);
+    // });
   }
 
   updateInput(key, input) {
@@ -58,9 +54,13 @@ class Footprint extends React.Component {
       product_name: this.state.product_name,
       date_purchased: this.state.date_purchased,
       purchase_price: this.state.purchase_price,
+      date_sold: "02/02/2020",
       sold_price: this.state.sold_price
     };
+    // Send a Post request to the backend/db
 
+    FootPrintApiService.postPrints(newItem).then(data => console.log(data));
+    // db should repond with a success response.
     const list = [...this.state.list, newItem];
 
     this.setState({
@@ -68,6 +68,7 @@ class Footprint extends React.Component {
       product_name: "",
       date_purchased: "",
       purchase_price: "",
+      date_sold: "",
       sold_price: ""
     });
   };
