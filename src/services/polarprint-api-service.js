@@ -27,27 +27,38 @@ const FootPrintApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  updatePrint(printId) {
-    return fetch(`${config.API_ENDPOINT}/footprints/${printId}/`, {
+  updatePrint(
+    printId,
+    product_name,
+    date_purchased,
+    purchase_price,
+    sold_price
+  ) {
+    return fetch(`${config.API_ENDPOINT}/footprints/${printId}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json"
-      }
+      },
+      body: JSON.stringify({
+        product_name,
+        date_purchased,
+        purchase_price,
+        sold_price
+      })
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  postPrints(product_name, date_purchased, date_sold, sold_price) {
+  postPrints(product_name, date_purchased, purchase_price, sold_price) {
     return fetch(`${config.API_ENDPOINT}/footprints`, {
       method: "POST",
       headers: {
         "content-type": "application/json"
       },
       body: JSON.stringify({
-        print_id: printId,
-        product_name,
+        print_id: product_name,
         date_purchased,
-        date_sold,
+        purchase_price,
         sold_price
       })
     }).then(res =>

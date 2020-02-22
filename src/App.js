@@ -22,7 +22,7 @@ function App() {
       </Route>
 
       <Route
-        path={["/intro", "/footprint", "/contact", "/resell"]}
+        path={["/intro", "/footprints", "/contact", "/resell"]}
         component={Header}
       />
 
@@ -33,7 +33,7 @@ function App() {
       <Route exact path="/intro" component={Intro} />
       <Route path="/intro/:intro_id" component={Intro} />
 
-      <Route path="/footprint" component={Footprint} />
+      <Route path="/footprints" component={Footprint} />
 
       <Route path="/contact" component={Contact} />
       <Route path="/resell" component={Resell} />

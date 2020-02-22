@@ -2,6 +2,7 @@ import React from "react";
 import "./Footprint.css";
 import PolarBlock from "./polarblock.png";
 import config from "../../config";
+import FootPrintApiService from "../../services/polarprint-api-service";
 
 class Footprint extends React.Component {
   constructor(props) {
@@ -27,7 +28,21 @@ class Footprint extends React.Component {
   // }
 
   componentWillMount() {
-    fetch(`${config.API_ENDPOINT}/footprints`);
+    // FootPrintApiService.getAllPrints()
+    //   .then(data => {
+    //     this.setState({ list: data });
+    //   })
+    //   .catch(err => console.error(err));
+
+    FootPrintApiService.getPrint().then(data => {
+      this.setState({ list: data });
+    });
+
+    // FootPrintApiService.updatePrint()
+    //   .then(data => {
+    //     this.setState({ list: data });
+    //   })
+    //   .catch(err => console.error(err));
   }
 
   updateInput(key, input) {
