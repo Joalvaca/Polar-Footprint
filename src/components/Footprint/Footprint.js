@@ -116,7 +116,7 @@ class Footprint extends React.Component {
       sold_price: this.state.sold_price
     };
 
-    FootPrintApiService.updatePrint(editedItem);
+    FootPrintApiService.updatePrint(editedItem).then(data => console.log(data));
 
     const list = this.state.list.map(item =>
       item.id === id ? editedItem : item

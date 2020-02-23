@@ -28,6 +28,7 @@ const FootPrintApiService = {
     );
   },
   updatePrint(editedItem) {
+    console.log(editedItem);
     return fetch(`${config.API_ENDPOINT}/footprints/${editedItem.id}`, {
       method: "PATCH",
       headers: {
