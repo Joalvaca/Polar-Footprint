@@ -6,7 +6,7 @@ import Logo from "./polarchef.png";
 function Header(props) {
   const headerLinks = {
     Intro: "/intro",
-    FootPrint: "/footprint",
+    FootPrint: "/footprints",
     Contact: "/contact",
     Resell: "/resell"
   };

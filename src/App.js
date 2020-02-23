@@ -35,6 +35,8 @@ function App() {
 
       <Route path="/footprints" component={Footprint} />
 
+      <Route path="/footprints/:print_id" component={Footprint} />
+
       <Route path="/contact" component={Contact} />
       <Route path="/resell" component={Resell} />
     </div>

@@ -13,6 +13,7 @@ class Footprint extends React.Component {
       date_purchased: "",
       purchase_price: "",
       sold_price: "",
+      date_sold: "",
       list: [],
       editedItem: null
     };
@@ -54,7 +55,7 @@ class Footprint extends React.Component {
       product_name: this.state.product_name,
       date_purchased: this.state.date_purchased,
       purchase_price: this.state.purchase_price,
-      date_sold: "02/02/2020",
+      date_sold: this.state.date_sold,
       sold_price: this.state.sold_price
     };
     // Send a Post request to the backend/db
@@ -76,6 +77,8 @@ class Footprint extends React.Component {
   deleteItem(id) {
     const list = [...this.state.list];
 
+    FootPrintApiService.deletePrint(id).then(res => console.log(res));
+
     const updatedList = list.filter(item => item.id !== id);
 
     this.setState({ list: updatedList });
@@ -86,6 +89,7 @@ class Footprint extends React.Component {
     let {
       product_name,
       date_purchased,
+      date_sold,
       purchase_price,
       sold_price
     } = editedItem;
@@ -93,6 +97,7 @@ class Footprint extends React.Component {
       editedItem,
       product_name,
       date_purchased,
+      date_sold,
       purchase_price,
       sold_price
     });
@@ -106,10 +111,13 @@ class Footprint extends React.Component {
       id: this.state.editedItem.id,
       product_name: this.state.product_name,
       date_purchased: this.state.date_purchased,
-      date_sold: this.state.editedItem.date_sold,
+      date_sold: this.state.date_sold,
       purchase_price: this.state.purchase_price,
       sold_price: this.state.sold_price
     };
+
+    FootPrintApiService.updatePrint(editedItem);
+
     const list = this.state.list.map(item =>
       item.id === id ? editedItem : item
     );
@@ -118,6 +126,7 @@ class Footprint extends React.Component {
       list,
       product_name: "",
       date_purchased: "",
+      date_sold: "",
       purchase_price: "",
       sold_price: "",
       editedItem: null
@@ -148,6 +157,17 @@ class Footprint extends React.Component {
               placeholder="Date Purchased (mm/dd/yyyy)"
               value={this.state.date_purchased}
               onChange={e => this.updateInput("date_purchased", e.target.value)}
+            />
+          </label>
+          <label className="label-print">
+            Date Sold:
+            <input
+              className="print-box"
+              required
+              type="text"
+              placeholder="Date Sold (mm/dd/yyyy)"
+              value={this.state.date_sold}
+              onChange={e => this.updateInput("date_sold", e.target.value)}
             />
           </label>
           <label className="label-print">
@@ -201,7 +221,7 @@ class Footprint extends React.Component {
           <div className="polar-form">
             <form onSubmit={this.addItem}>
               <label className="label-print">
-                Name:
+                Product Name:
                 <input
                   className="print-box"
                   required
@@ -224,6 +244,17 @@ class Footprint extends React.Component {
                   onChange={e =>
                     this.updateInput("date_purchased", e.target.value)
                   }
+                />
+              </label>
+              <label className="label-print">
+                Date Sold:
+                <input
+                  className="print-box"
+                  required
+                  type="text"
+                  placeholder="Date Sold (mm/dd/yyyy)"
+                  value={this.state.date_sold}
+                  onChange={e => this.updateInput("date_sold", e.target.value)}
                 />
               </label>
               <label className="label-print">
@@ -273,6 +304,11 @@ class Footprint extends React.Component {
                     <p>Date Purchased</p>
 
                     {item.date_purchased}
+                  </div>
+                  <div className="list-items">
+                    <p>Date Sold</p>
+
+                    {item.date_sold}
                   </div>
                   <div className="list-items">
                     <p>Purchase Price</p>${item.purchase_price}

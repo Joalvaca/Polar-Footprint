@@ -27,35 +27,25 @@ const FootPrintApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  updatePrint(
-    printId,
-    product_name,
-    date_purchased,
-    purchase_price,
-    sold_price
-  ) {
-    return fetch(`${config.API_ENDPOINT}/footprints/${printId}`, {
+  updatePrint(editedItem) {
+    return fetch(`${config.API_ENDPOINT}/footprints/${editedItem.id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json"
       },
       body: JSON.stringify({
-        product_name,
-        date_purchased,
-        purchase_price,
-        sold_price
+        //print_id: product_name,
+        product_name: editedItem.product_name,
+        date_purchased: editedItem.date_purchased,
+        purchase_price: editedItem.purchase_price,
+        date_sold: editedItem.date_sold,
+        sold_price: editedItem.sold_price
       })
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  postPrints(
-    product_name,
-    date_purchased,
-    purchase_price,
-    date_sold,
-    sold_price
-  ) {
+  postPrints(newItem) {
     return fetch(`${config.API_ENDPOINT}/footprints`, {
       method: "POST",
       headers: {
@@ -63,11 +53,11 @@ const FootPrintApiService = {
       },
       body: JSON.stringify({
         //print_id: product_name,
-        product_name,
-        date_purchased,
-        purchase_price,
-        date_sold,
-        sold_price
+        product_name: newItem.product_name,
+        date_purchased: newItem.date_purchased,
+        purchase_price: newItem.purchase_price,
+        date_sold: newItem.date_sold,
+        sold_price: newItem.sold_price
       })
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
