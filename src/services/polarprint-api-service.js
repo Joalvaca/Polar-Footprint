@@ -12,7 +12,9 @@ const FootPrintApiService = {
   getPrint(printId) {
     return fetch(`${config.API_ENDPOINT}/footprints/${printId}`, {
       method: "GET",
-      headers: { "content-type": "application/json" }
+      headers: {
+        "content-type": "application/json"
+      }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );

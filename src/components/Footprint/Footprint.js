@@ -60,18 +60,29 @@ class Footprint extends React.Component {
     };
     // Send a Post request to the backend/db
 
-    FootPrintApiService.postPrints(newItem).then(data => console.log(data));
-    // db should repond with a success response.
-    const list = [...this.state.list, newItem];
-
-    this.setState({
-      list,
-      product_name: "",
-      date_purchased: "",
-      purchase_price: "",
-      date_sold: "",
-      sold_price: ""
+    FootPrintApiService.postPrints(newItem).then(data => {
+      const list = [...this.state.list, data];
+      console.log(data);
+      this.setState({
+        list,
+        product_name: "",
+        date_purchased: "",
+        purchase_price: "",
+        date_sold: "",
+        sold_price: ""
+      });
     });
+    // db should repond with a success response.
+    // const list = [...this.state.list, newRecord];
+
+    // this.setState({
+    //   list,
+    //   product_name: "",
+    //   date_purchased: "",
+    //   purchase_price: "",
+    //   date_sold: "",
+    //   sold_price: ""
+    // });
   };
 
   deleteItem(id) {
