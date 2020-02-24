@@ -1,8 +1,8 @@
 import React from "react";
 import "./Footprint.css";
 import PolarBlock from "./polarblock.png";
-import config from "../../config";
 import FootPrintApiService from "../../services/polarprint-api-service";
+import FootprintForm from "../FootprintForm/FootprintForm";
 
 class Footprint extends React.Component {
   constructor(props) {
@@ -42,11 +42,11 @@ class Footprint extends React.Component {
     // });
   }
 
-  updateInput(key, input) {
+  updateInput = (key, input) => {
     this.setState({
       [key]: input
     });
-  }
+  };
 
   addItem = e => {
     e.preventDefault();
@@ -144,81 +144,16 @@ class Footprint extends React.Component {
     });
   };
 
-  renderEditForm() {
-    return (
-      <div className="polar-form">
-        <form onSubmit={this.updateItem}>
-          <label className="label-print">
-            Name:
-            <input
-              className="print-box"
-              required
-              type="text"
-              placeholder="Item Name"
-              value={this.state.product_name}
-              onChange={e => this.updateInput("product_name", e.target.value)}
-            />
-          </label>
-          <label className="label-print">
-            Date Purchased:
-            <input
-              className="print-box"
-              required
-              type="text"
-              placeholder="Date Purchased (mm/dd/yyyy)"
-              value={this.state.date_purchased}
-              onChange={e => this.updateInput("date_purchased", e.target.value)}
-            />
-          </label>
-          <label className="label-print">
-            Date Sold:
-            <input
-              className="print-box"
-              required
-              type="text"
-              placeholder="Date Sold (mm/dd/yyyy)"
-              value={this.state.date_sold}
-              onChange={e => this.updateInput("date_sold", e.target.value)}
-            />
-          </label>
-          <label className="label-print">
-            Purchase Price:
-            <input
-              className="print-box"
-              required
-              type="number"
-              placeholder="Purchase Price"
-              value={this.state.purchase_price}
-              onChange={e => this.updateInput("purchase_price", e.target.value)}
-            />
-          </label>
-          <label className="label-print">
-            Selling Price:
-            <input
-              className="print-box"
-              required
-              type="number"
-              placeholder="Sold Price"
-              value={this.state.sold_price}
-              onChange={e => this.updateInput("sold_price", e.target.value)}
-            />
-          </label>
-          <div className="polar-add">
-            <button className="button" type="submit">
-              Update
-            </button>
-            <button
-              className="button"
-              type="button"
-              onClick={() => this.setState({ editedItem: null })}
-            >
-              Cancel
-            </button>
-          </div>
-        </form>
-      </div>
-    );
-  }
+  setEditedItem = isEdited => {
+    this.setState({
+      product_name: "",
+      date_purchased: "",
+      date_sold: "",
+      purchase_price: "",
+      sold_price: "",
+      editedItem: null
+    });
+  };
 
   render() {
     return (
@@ -227,78 +162,21 @@ class Footprint extends React.Component {
           <img className="polar-block" src={PolarBlock} alt="polarblock" />
         </div>
         {this.state.editedItem ? (
-          this.renderEditForm()
+          <FootprintForm
+            formSubmit={this.updateItem}
+            updateInput={this.updateInput}
+            setEditedItem={this.setEditedItem}
+            type="Update"
+            {...this.state}
+          />
         ) : (
-          <div className="polar-form">
-            <form onSubmit={this.addItem}>
-              <label className="label-print">
-                Product Name:
-                <input
-                  className="print-box"
-                  required
-                  type="text"
-                  placeholder="Item Name"
-                  value={this.state.product_name}
-                  onChange={e =>
-                    this.updateInput("product_name", e.target.value)
-                  }
-                />
-              </label>
-              <label className="label-print">
-                Date Purchased:
-                <input
-                  className="print-box"
-                  required
-                  type="text"
-                  placeholder="Date Purchased (mm/dd/yyyy)"
-                  value={this.state.date_purchased}
-                  onChange={e =>
-                    this.updateInput("date_purchased", e.target.value)
-                  }
-                />
-              </label>
-              <label className="label-print">
-                Date Sold:
-                <input
-                  className="print-box"
-                  required
-                  type="text"
-                  placeholder="Date Sold (mm/dd/yyyy)"
-                  value={this.state.date_sold}
-                  onChange={e => this.updateInput("date_sold", e.target.value)}
-                />
-              </label>
-              <label className="label-print">
-                Purchase Price:
-                <input
-                  className="print-box"
-                  required
-                  type="number"
-                  placeholder="Purchase Price"
-                  value={this.state.purchase_price}
-                  onChange={e =>
-                    this.updateInput("purchase_price", e.target.value)
-                  }
-                />
-              </label>
-              <label className="label-print">
-                Selling Price:
-                <input
-                  className="print-box"
-                  required
-                  type="number"
-                  placeholder="Sold Price"
-                  value={this.state.sold_price}
-                  onChange={e => this.updateInput("sold_price", e.target.value)}
-                />
-              </label>
-              <div className="polar-add">
-                <button className="button" type="submit">
-                  add
-                </button>
-              </div>
-            </form>
-          </div>
+          <FootprintForm
+            formSubmit={this.addItem}
+            updateInput={this.updateInput}
+            setEditedItem={this.setEditedItem}
+            type="Add"
+            {...this.state}
+          />
         )}
 
         <ul className="list-render">

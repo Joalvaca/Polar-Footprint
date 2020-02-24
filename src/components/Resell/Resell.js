@@ -7,10 +7,14 @@ function Resell() {
   return (
     <main>
       <div className="resell-container">
-        <a href="https://stockx.com/" target="_blank">
+        <a href="https://stockx.com/" target="_blank" rel="noopener noreferrer">
           <img className="stockx-logo" src={Stockx} alt="stockxlogo" />
         </a>
-        <a href="https://www.goat.com/" target="_blank">
+        <a
+          href="https://www.goat.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img className="goat-logo" src={Goat} alt="goatlogo" />
         </a>
       </div>

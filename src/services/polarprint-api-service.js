@@ -25,9 +25,7 @@ const FootPrintApiService = {
       headers: {
         "content-type": "application/json"
       }
-    }).then(res =>
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    }).then(res => (!res.ok ? res.json().then(e => Promise.reject(e)) : res));
   },
   updatePrint(editedItem) {
     console.log(editedItem);
@@ -44,9 +42,7 @@ const FootPrintApiService = {
         date_sold: editedItem.date_sold,
         sold_price: editedItem.sold_price
       })
-    }).then(res =>
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    }).then(res => (!res.ok ? res.json().then(e => Promise.reject(e)) : res));
   },
   postPrints(newItem) {
     return fetch(`${config.API_ENDPOINT}/footprints`, {

@@ -11,10 +11,18 @@ function Contact() {
   return (
     <main>
       <div className="contact-container">
-        <a href="https://www.instagram.com/polarchefs/" target="_blank">
+        <a
+          href="https://www.instagram.com/polarchefs/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FontAwesomeIcon size="9x" icon={["fab", "instagram"]} />
         </a>
-        <a href="https://twitter.com/polarchefs" target="_blank">
+        <a
+          href="https://twitter.com/polarchefs"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FontAwesomeIcon size="9x" icon={["fab", "twitter"]} />
         </a>
       </div>
