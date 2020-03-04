@@ -8,7 +8,9 @@ function Intro() {
       <div className="intro-container">
         <div className="pic-container">
           <img className="intro-pic" src={iceberg} alt="logo" />
-          <p className="intro-text">
+        </div>
+        <div className="intro-text">
+          <p>
             Welcome to Polar Footprints, This App is designed to help keep track
             of your inventory, so that you can better manage you time, money,
             and stock. Please use the above inventory tabs to propery guide

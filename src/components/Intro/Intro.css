@@ -2,7 +2,6 @@
   text-align: center;
   font-size: 30px;
   font-weight: 700;
-  margin-top: 120px;
   letter-spacing: 1px;
   padding: 10px;
 }
@@ -17,5 +16,29 @@
   margin-top: 80px;
 }
 .intro-pic {
-  max-width: 400px;
+  max-width: 200px;
+}
+
+@media (max-width: 780px) {
+  .intro-pic {
+    max-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .intro-text {
+    font-size: 25px;
+  }
+  .intro-pic {
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  .intro-text {
+    font-size: 18px;
+  }
+  .intro-pic {
+    max-height: 200px;
+  }
 }

@@ -23,3 +23,15 @@ header {
 .links-header.active {
   border-bottom: 3px solid white;
 }
+
+@media (max-width: 780px) {
+  .links-header {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .links-header {
+    font-size: 15px;
+  }
+}

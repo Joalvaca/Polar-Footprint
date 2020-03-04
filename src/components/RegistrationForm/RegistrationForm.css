@@ -36,3 +36,23 @@
 .register-label {
   font-size: 20px;
 }
+
+@media (max-width: 780px) {
+  .register-label {
+    font-size: 17px;
+  }
+  .register-button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .register-label {
+    font-size: 15px;
+  }
+  .register-button {
+    font-size: 13px;
+    padding: 10px;
+  }
+}

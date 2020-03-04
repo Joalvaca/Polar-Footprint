@@ -205,15 +205,15 @@ class Footprint extends React.Component {
                   <div className="list-items">
                     <p>Selling Price</p>${item.sold_price}
                   </div>
-                  <div className="delete-button">
+                  <div className="delete-section">
                     <button
-                      className="button"
+                      className="edit-button"
                       onClick={() => this.editItem(item.id)}
                     >
                       Edit
                     </button>
                     <button
-                      className="button"
+                      className="delete-button"
                       onClick={() => this.deleteItem(item.id)}
                     >
                       X

@@ -22,3 +22,9 @@
   width: 200px;
   max-width: 600px;
 }
+
+@media (max-width: 780px) {
+}
+
+@media (max-width: 600px) {
+}

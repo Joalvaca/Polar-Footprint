@@ -48,8 +48,6 @@ class LoginForm extends React.Component {
           <Link style={{ textDecoration: "none" }} to="/login">
             <h1 className="login-link">login</h1>
           </Link>
-          <Link to="/">homepage </Link>
-          <Link to="/intro">Intro</Link>
         </div>
         <div className="logo-container">
           <img src={Logo} alt="logo" />

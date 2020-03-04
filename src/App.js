@@ -11,6 +11,7 @@ import RegistrationForm from "./components/RegistrationForm/RegistrationFrom";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 library.add(fab);
 
@@ -30,13 +31,13 @@ function App() {
 
       <Route path="/register" component={RegistrationForm} />
 
-      <Route exact path="/intro" component={Intro} />
-      <Route path="/intro/:intro_id" component={Intro} />
+      <PrivateRoute exact path="/intro" component={Intro} />
+      <PrivateRoute path="/intro/:intro_id" component={Intro} />
 
-      <Route path="/footprints" component={Footprint} />
+      <PrivateRoute path="/footprints" component={Footprint} />
 
-      <Route path="/contact" component={Contact} />
-      <Route path="/resell" component={Resell} />
+      <PrivateRoute path="/contact" component={Contact} />
+      <PrivateRoute path="/resell" component={Resell} />
     </div>
   );
 }
