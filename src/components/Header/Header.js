@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
-import Logo from "./polarchef.png";
+import Logo from "../../images/polarchef.png";
 
 function Header(props) {
   const headerLinks = {

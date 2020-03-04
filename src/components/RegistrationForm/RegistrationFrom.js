@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "./polarchef.png";
+import Logo from "../../images/polarchef.png";
 import { Link } from "react-router-dom";
 import "./RegistrationForm.css";
 import AuthApiService from "../../services/auth-service";

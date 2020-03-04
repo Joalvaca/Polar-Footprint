@@ -1,6 +1,6 @@
 import React from "react";
 import "./Homepage.css";
-import Logo from "./polarchef.png";
+import Logo from "../../images/polarchef.png";
 import { Link } from "react-router-dom";
 
 function Homepage() {

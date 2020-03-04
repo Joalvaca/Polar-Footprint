@@ -1,9 +1,8 @@
 import React from "react";
 import "./Footprint.css";
-import PolarBlock from "./polarblock.png";
+import PolarBlock from "../../images/polarblock.png";
 import FootPrintApiService from "../../services/polarprint-api-service";
 import FootprintForm from "../FootprintForm/FootprintForm";
-
 class Footprint extends React.Component {
   constructor(props) {
     super(props);
@@ -19,27 +18,12 @@ class Footprint extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   fetch(`${config.API_ENDPOINT}/footprints`)
-  //     .then(response => response.json())
-  //     .then(prints => {
-  //       console.log(prints);
-  //       this.setState({ list: prints });
-  //     });
-  // }
-
   componentDidMount() {
     FootPrintApiService.getAllPrints()
       .then(data => {
         this.setState({ list: data });
-        console.log(data);
       })
       .catch(err => console.error(err));
-
-    // FootPrintApiService.getPrint().then(data => {
-    //   this.setState({ list: data });
-    //   console.log(data);
-    // });
   }
 
   updateInput = (key, input) => {
@@ -58,7 +42,6 @@ class Footprint extends React.Component {
       date_sold: this.state.date_sold,
       sold_price: this.state.sold_price
     };
-    // Send a Post request to the backend/db
 
     FootPrintApiService.postPrints(newItem).then(data => {
       const list = [...this.state.list, data];
@@ -72,17 +55,6 @@ class Footprint extends React.Component {
         sold_price: ""
       });
     });
-    // db should repond with a success response.
-    // const list = [...this.state.list, newRecord];
-
-    // this.setState({
-    //   list,
-    //   product_name: "",
-    //   date_purchased: "",
-    //   purchase_price: "",
-    //   date_sold: "",
-    //   sold_price: ""
-    // });
   };
 
   deleteItem(id) {

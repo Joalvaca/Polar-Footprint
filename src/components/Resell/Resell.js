@@ -1,6 +1,6 @@
 import React from "react";
-import Goat from "./goatlogo.png";
-import Stockx from "./stocklogo.png";
+import Goat from "../../images/goatlogo.png";
+import Stockx from "../../images/stocklogo.png";
 import "./Resell.css";
 
 function Resell() {
