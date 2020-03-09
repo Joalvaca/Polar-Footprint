@@ -1,10 +1,14 @@
 import config from "../config";
+import TokenService from "./token-service";
 
 const FootPrintApiService = {
   getAllPrints() {
     return fetch(`${config.API_ENDPOINT}/footprints`, {
       method: "GET",
-      headers: { "content-type": "application/json" }
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`
+      }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
@@ -13,7 +17,8 @@ const FootPrintApiService = {
     return fetch(`${config.API_ENDPOINT}/footprints/${printId}`, {
       method: "GET",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`
       }
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
@@ -23,7 +28,8 @@ const FootPrintApiService = {
     return fetch(`${config.API_ENDPOINT}/footprints/${printId}`, {
       method: "DELETE",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`
       }
     }).then(res => (!res.ok ? res.json().then(e => Promise.reject(e)) : res));
   },
@@ -32,7 +38,8 @@ const FootPrintApiService = {
     return fetch(`${config.API_ENDPOINT}/footprints/${editedItem.id}`, {
       method: "PATCH",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({
         //print_id: product_name,
@@ -48,7 +55,8 @@ const FootPrintApiService = {
     return fetch(`${config.API_ENDPOINT}/footprints`, {
       method: "POST",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({
         //print_id: product_name,
