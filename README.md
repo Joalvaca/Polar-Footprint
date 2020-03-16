@@ -12,6 +12,5 @@ Polar Footprints was built using React and CSS
 
 ## Live Site
 
-<div><img src="src/images/PolarHome.jpg" alt="Homepage"><div>
+<div><img src="src/images/Polarhome.jpg" alt="Homepage"><div>
 <div><img src="src/images/Polarlogin.jpg" alt="Polarlogin"><div>
-<
