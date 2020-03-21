@@ -13,7 +13,7 @@
 .pic-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 100px;
 }
 .intro-pic {
   max-width: 200px;
@@ -39,7 +39,7 @@
 
 @media (max-width: 600px) {
   .intro-text {
-    font-size: 18px;
+    font-size: 20px;
   }
   .intro-pic {
     max-height: 200px;

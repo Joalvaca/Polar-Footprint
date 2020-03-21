@@ -167,7 +167,7 @@ class Footprint extends React.Component {
                     {item.date_purchased}
                   </div>
                   <div className="list-items">
-                    <p>Date Sold</p>
+                    <p>Date of Sale</p>
 
                     {item.date_sold}
                   </div>

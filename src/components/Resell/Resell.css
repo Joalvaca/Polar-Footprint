@@ -8,24 +8,35 @@
 .resell-container {
   display: flex;
   justify-content: space-evenly;
+  text-align: center;
+  margin-top: 80px;
 }
 .stockx-logo {
   margin-top: 80px;
   border: 5px black solid;
-  height: 100px;
-  width: 200px;
+  max-width: 90%;
   margin-top: 130px;
 }
 .goat-logo {
   border: 5px black solid;
   margin-top: 80px;
-  height: 200px;
-  width: 200px;
-  max-width: 600px;
-}
-
-@media (max-width: 780px) {
+  max-width: 40%;
 }
 
 @media (max-width: 600px) {
+  .resell-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .goat-logo {
+    margin-top: 10px;
+    max-width: 50%;
+  }
+  .stockx-logo {
+    margin-top: 10px;
+    max-width: 50%;
+  }
+  .resell-text {
+    font-size: 20px;
+  }
 }

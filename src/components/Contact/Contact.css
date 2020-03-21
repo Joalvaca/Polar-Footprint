@@ -7,7 +7,7 @@
 }
 .contact-container {
   display: flex;
-  margin-top: 80px;
+  margin-top: 170px;
   justify-content: space-evenly;
   text-decoration: none;
 }
@@ -15,8 +15,17 @@ a {
   color: black;
 }
 
-@media (max-width: 780px) {
-}
-
 @media (max-width: 600px) {
+  .contact-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+  }
+  .intro-text {
+    font-size: 20px;
+  }
+  .fa-9x {
+    font-size: 12em;
+  }
 }
