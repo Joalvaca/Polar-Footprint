@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "alias": "joels-polar-app",
+  "name": "polar-app",
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ]
+}
