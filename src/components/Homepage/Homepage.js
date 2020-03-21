@@ -23,13 +23,4 @@ function Homepage() {
   );
 }
 
-/*
-
-{name:'',content:'',image:'one.jpg'}
-<img src={`/images/thumbnails/${res.image}`}
-image: https://www.google.com/logo.png
-<img src={res.image} />
-
-*/
-
 export default Homepage;

@@ -33,9 +33,6 @@ class RegistrationForm extends React.Component {
       password: password.value
     })
       .then(res => {
-        /*if(res.error){
-              throw Error(res.error)
-          }*/
         first_name.value = "";
         last_name.value = "";
         user_name.value = "";
