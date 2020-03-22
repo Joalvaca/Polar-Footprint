@@ -4,6 +4,7 @@
   "name": "polar-app",
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
+    { "src": "/.*", "dest": "/index.html" },
+    { "sec": ".*", "dest": "/index.html" }
   ]
 }
