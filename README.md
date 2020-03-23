@@ -6,6 +6,11 @@ An application that allows helps users keep track of inventory, so that you can 
 
 Polar Footprints was built using React and CSS
 
+## Test User
+
+username: testuser
+password: Testuser1!
+
 ## API Repo
 
 <div>https://github.com/Joalvaca/Polar-Server.git</div>
