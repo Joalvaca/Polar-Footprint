@@ -4,7 +4,7 @@ export default class FootprintForm extends React.Component {
   render() {
     return (
       <div>
-        <form className="polar-form" onSubmit={this.props.formSubmit}>
+        <form className="polar-form" id="form" onSubmit={this.props.formSubmit}>
           <div>
             <label className="label-print">
               Name:
@@ -24,8 +24,8 @@ export default class FootprintForm extends React.Component {
               <input
                 className="print-box"
                 required
-                type="text"
-                placeholder="Date Purchased (mm/dd/yyyy)"
+                type="date"
+                placeholder="Date Purchased"
                 value={this.props.date_purchased}
                 onChange={e =>
                   this.props.updateInput("date_purchased", e.target.value)
@@ -37,8 +37,8 @@ export default class FootprintForm extends React.Component {
               <input
                 className="print-box"
                 required
-                type="text"
-                placeholder="Date Sold (mm/dd/yyyy)"
+                type="date"
+                placeholder="Date Sold"
                 value={this.props.date_sold}
                 onChange={e =>
                   this.props.updateInput("date_sold", e.target.value)

@@ -12,7 +12,7 @@ class LoginForm extends React.Component {
       push: () => {}
     }
   };
-  state = { error: null };
+  state = { loading: false, error: null };
 
   handleLoginSuccess = () => {
     this.props.history.push("/intro");
@@ -50,8 +50,9 @@ class LoginForm extends React.Component {
           </Link>
         </div>
         <div className="logo-container">
-          <img src={Logo} alt="logo" />
+          <img src={Logo} alt="logo"></img>
           <div>
+            <div className="demo">Demo Credentials: Testuser / Testuser1!</div>
             <form onSubmit={this.handleSubmitJwtAuth}>
               <div className="login-form">
                 <div className="login-inputs">
@@ -70,11 +71,11 @@ class LoginForm extends React.Component {
                     name="password"
                     type="password"
                   ></input>
+                  <button className="login-button" type="submit">
+                    Login
+                  </button>
                 </div>
               </div>
-              <button className="login-button" type="submit">
-                Login
-              </button>
             </form>
           </div>
         </div>

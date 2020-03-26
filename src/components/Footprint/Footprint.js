@@ -3,6 +3,7 @@ import "./Footprint.css";
 import PolarBlock from "../../images/polarblock.png";
 import FootPrintApiService from "../../services/polarprint-api-service";
 import FootprintForm from "../FootprintForm/FootprintForm";
+
 class Footprint extends React.Component {
   constructor(props) {
     super(props);
@@ -58,6 +59,7 @@ class Footprint extends React.Component {
   };
 
   deleteItem(id) {
+    // alert("Your footprint was deleted")
     const list = [...this.state.list];
 
     FootPrintApiService.deletePrint(id).then(res => console.log(res));
@@ -184,6 +186,7 @@ class Footprint extends React.Component {
                     >
                       Edit
                     </button>
+
                     <button
                       className="delete-button"
                       onClick={() => this.deleteItem(item.id)}

@@ -17,7 +17,13 @@ function Homepage() {
       </div>
       <div className="logo-container">
         <img src={Logo} alt="logo" />
-        <h2 className="logo-name">POLAR CHEFS</h2>
+        <h2 className="homepage-logo-name">Polar Footprints</h2>
+        <div className="homepage-intro">
+          Welcome to Polar Footprints! This was designed to help you get started
+          on your reselling journey, by keeping track of your inventory and
+          sales. Click the login at the top right and use the demo credentials
+          provided, or you may make your own credentials.
+        </div>
       </div>
     </main>
   );

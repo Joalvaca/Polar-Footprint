@@ -11,11 +11,9 @@ function Intro() {
         </div>
         <div className="intro-text">
           <p>
-            Welcome to Polar Footprints, This App is designed to help keep track
-            of your inventory, so that you can better manage your time, money,
-            and stock. By filling out the form in the footprint tab, you can
-            input specific details about your products. Please use the above
-            inventory tabs to propery guide yourself to the app.
+            Polar Footprints was designed for members in Polar Chefs, a sneaker
+            reselling group. Each section of Polar Footprints is designed to aid
+            the user in their reselling journey.
           </p>
         </div>
       </div>

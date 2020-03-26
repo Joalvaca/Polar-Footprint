@@ -57,6 +57,19 @@ class RegistrationForm extends React.Component {
         <div className="register-container">
           <img src={Logo} alt="logo" />
           <div>
+            <div className="register-requirements">
+              <strong>
+                Password requirements:
+                <br />
+                Must contain an uppercase, lowercase, number and special
+                character
+                <br />
+                Must be between 8 and 72 characters
+                <br />
+                Must not begin or end with a space
+                <br />
+              </strong>
+            </div>
             <form onSubmit={this.handleSubmit}>
               {this.state.error ? (
                 <p className="error">{this.state.error}</p>
@@ -72,7 +85,7 @@ class RegistrationForm extends React.Component {
                     name="first_name"
                     type="text"
                   ></input>
-                  <label className="register-label">last Name:</label>
+                  <label className="register-label">Last Name:</label>
                   <input
                     className="register-box"
                     required
@@ -93,11 +106,11 @@ class RegistrationForm extends React.Component {
                     name="password"
                     type="password"
                   ></input>
+                  <button className="register-button" type="submit">
+                    Register
+                  </button>
                 </div>
               </div>
-              <button className="register-button" type="submit">
-                Register
-              </button>
             </form>
           </div>
         </div>

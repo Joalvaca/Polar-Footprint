@@ -36,7 +36,12 @@
 .register-label {
   font-size: 20px;
 }
-
+.register-requirements {
+  text-align: center;
+  margin: 5px;
+  font-size: 17px;
+  padding: 5px;
+}
 @media (max-width: 780px) {
   .register-label {
     font-size: 17px;
