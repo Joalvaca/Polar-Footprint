@@ -44,6 +44,7 @@
   .intro-pic {
     display: flex;
     justify-content: center;
-    max-width: 10%;
+    max-width: 30%;
+    background-attachment: fixed;
   }
 }
