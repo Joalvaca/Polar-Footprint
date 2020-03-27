@@ -34,3 +34,15 @@
   color: white;
   width: 80%;
 }
+
+@media (max-width: 600px) {
+  .homepage-logo {
+    max-width: 50%;
+  }
+  .homepage-intro {
+    font-size: 15px;
+  }
+  .homepage-logo-name {
+    font-size: 27px;
+  }
+}

@@ -24,7 +24,7 @@
 
 @media (max-width: 780px) {
   .intro-pic {
-    max-height: 150px;
+    max-width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +33,7 @@
     font-size: 25px;
   }
   .intro-pic {
-    max-height: 250px;
+    max-width: 30%;
   }
 }
 
@@ -42,6 +42,6 @@
     font-size: 20px;
   }
   .intro-pic {
-    max-height: 200px;
+    max-width: 30%;
   }
 }

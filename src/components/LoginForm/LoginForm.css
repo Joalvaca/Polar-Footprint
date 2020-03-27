@@ -113,4 +113,8 @@
   .login-button {
     font-size: 13px;
   }
+  .demo {
+    text-align: center;
+    font-size: 15px;
+  }
 }
