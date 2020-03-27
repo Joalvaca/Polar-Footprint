@@ -19,6 +19,8 @@
   margin-bottom: 20px;
 }
 .login-logo {
+  display: flex;
+  justify-content: center;
   max-width: 30%;
 }
 .login-header {
