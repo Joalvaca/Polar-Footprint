@@ -97,7 +97,7 @@
 .polar-block {
   display: flex;
   flex-direction: row;
-  max-width: 180px;
+  max-width: 20%;
   border: 2px solid white;
   border-radius: 50%;
 }

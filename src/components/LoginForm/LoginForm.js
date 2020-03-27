@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
           </Link>
         </div>
         <div className="logo-container">
-          <img src={Logo} alt="logo"></img>
+          <img className="login-logo" src={Logo} alt="logo"></img>
           <div>
             <div className="demo">Demo Credentials: Testuser / Testuser1!</div>
             <form onSubmit={this.handleSubmitJwtAuth}>

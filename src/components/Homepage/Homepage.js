@@ -16,7 +16,7 @@ function Homepage() {
         </Link>
       </div>
       <div className="logo-container">
-        <img src={Logo} alt="logo" />
+        <img className="homepage-logo" src={Logo} alt="logo" />
         <h2 className="homepage-logo-name">Polar Footprints</h2>
         <div className="homepage-intro">
           Welcome to Polar Footprints! This was designed to help you get started

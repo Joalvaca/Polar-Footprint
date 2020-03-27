@@ -59,7 +59,6 @@ class Footprint extends React.Component {
   };
 
   deleteItem(id) {
-    // alert("Your footprint was deleted")
     const list = [...this.state.list];
 
     FootPrintApiService.deletePrint(id).then(res => console.log(res));
@@ -179,17 +178,27 @@ class Footprint extends React.Component {
                   <div className="list-items">
                     <p>Selling Price</p>${item.sold_price}
                   </div>
+
                   <div className="delete-section">
                     <button
                       className="edit-button"
-                      onClick={() => this.editItem(item.id)}
+                      onClick={() => {
+                        this.editItem(item.id);
+                      }}
                     >
                       Edit
                     </button>
 
                     <button
                       className="delete-button"
-                      onClick={() => this.deleteItem(item.id)}
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            "Are you sure you want to delete your Footprint?"
+                          )
+                        )
+                          this.deleteItem(item.id);
+                      }}
                     >
                       X
                     </button>

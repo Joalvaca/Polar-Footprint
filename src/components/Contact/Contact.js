@@ -11,6 +11,7 @@ function Contact() {
     <main>
       <div className="contact-container">
         <a
+          className="contact-links"
           href="https://www.instagram.com/polarchefs/"
           target="_blank"
           rel="noopener noreferrer"
@@ -18,6 +19,7 @@ function Contact() {
           <FontAwesomeIcon size="9x" icon={["fab", "instagram"]} />
         </a>
         <a
+          className="contact-links"
           href="https://twitter.com/polarchefs"
           target="_blank"
           rel="noopener noreferrer"

@@ -1,10 +1,13 @@
 import React from "react";
-
 export default class FootprintForm extends React.Component {
   render() {
     return (
       <div>
-        <form className="polar-form" id="form" onSubmit={this.props.formSubmit}>
+        <form
+          className="polar-form"
+          id="edit-form"
+          onSubmit={this.props.formSubmit}
+        >
           <div>
             <label className="label-print">
               Name:

@@ -42,6 +42,9 @@
   font-size: 17px;
   padding: 5px;
 }
+.register-logo {
+  max-width: 30%;
+}
 @media (max-width: 780px) {
   .register-label {
     font-size: 17px;

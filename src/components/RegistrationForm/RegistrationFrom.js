@@ -55,7 +55,7 @@ class RegistrationForm extends React.Component {
           </Link>
         </div>
         <div className="register-container">
-          <img src={Logo} alt="logo" />
+          <img className="register-logo" src={Logo} alt="logo" />
           <div>
             <div className="register-requirements">
               <strong>
