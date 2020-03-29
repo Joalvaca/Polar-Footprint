@@ -1,0 +1,57 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+}
+.footer-icons {
+  font-size: 15px;
+  text-align: center;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+}
+.claire-email {
+  color: white;
+  text-decoration: none;
+}
+.site {
+  text-decoration: none;
+  color: white;
+}
+.polar-site {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+@media (min-width: 780px) {
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: black;
+  }
+  .footer-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 15px;
+  }
+  .footer-icons {
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: white;
+    text-align: center;
+    margin: 0px 50px;
+  }
+  .icon {
+    font-size: 40px;
+  }
+}
