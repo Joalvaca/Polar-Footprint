@@ -13,12 +13,14 @@ password: Testuser1!
 
 ## API Repo
 
-<div>https://github.com/Joalvaca/Polar-Server.git</div>
+[API Repo](https://github.com/Joalvaca/Polar-Server.git)
 
 ## Live Site
 
-<div>https://polar-app.now.sh/</div>
-<br></br>
+[Live Site Here](https://polar-app.now.sh/)
 
-<div><img src="src/images/Polarhome.jpg" alt="Homepage"><div>
-<div><img src="src/images/Polarlogin.jpg" alt="Polarlogin"><div>
+##Polar App
+
+![Polar Intro](https://github.com/Joalvaca/Polar-app/raw/master/src/images/polar-form.jpg)
+
+![Polar Form](<(https://github.com/Joalvaca/Polar-app/raw/master/src/images/polar-homepage.jpg)>)
