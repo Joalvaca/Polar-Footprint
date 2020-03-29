@@ -3,6 +3,7 @@ import "./Footprint.css";
 import PolarBlock from "../../images/polarblock.png";
 import FootPrintApiService from "../../services/polarprint-api-service";
 import FootprintForm from "../FootprintForm/FootprintForm";
+import Footer from "../Footer/Footer";
 
 class Footprint extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class Footprint extends React.Component {
       editedItem: null
     };
   }
-
+  // Gets all product data from Database
   componentDidMount() {
     FootPrintApiService.getAllPrints()
       .then(data => {
@@ -43,10 +44,9 @@ class Footprint extends React.Component {
       date_sold: this.state.date_sold,
       sold_price: this.state.sold_price
     };
-
+    // Posts new item
     FootPrintApiService.postPrints(newItem).then(data => {
       const list = [...this.state.list, data];
-      console.log(data);
       this.setState({
         list,
         product_name: "",
@@ -57,7 +57,7 @@ class Footprint extends React.Component {
       });
     });
   };
-
+  //  Deletes existing item
   deleteItem(id) {
     const list = [...this.state.list];
 
@@ -67,7 +67,7 @@ class Footprint extends React.Component {
 
     this.setState({ list: updatedList });
   }
-
+  // Edits existing item
   editItem = id => {
     let editedItem = this.state.list.find(item => item.id === id);
     let {
@@ -77,16 +77,21 @@ class Footprint extends React.Component {
       purchase_price,
       sold_price
     } = editedItem;
-    this.setState({
-      editedItem,
-      product_name,
-      date_purchased,
-      date_sold,
-      purchase_price,
-      sold_price
-    });
+    this.setState(
+      {
+        editedItem,
+        product_name,
+        date_purchased,
+        date_sold,
+        purchase_price,
+        sold_price
+      },
+      () => {
+        window.scroll(0, 0);
+      }
+    );
   };
-
+  // Lets user update existing item
   updateItem = e => {
     e.preventDefault();
     const id = this.state.editedItem.id;
@@ -134,80 +139,81 @@ class Footprint extends React.Component {
         <div className="polar-block-pic">
           <img className="polar-block" src={PolarBlock} alt="polarblock" />
         </div>
-        {this.state.editedItem ? (
-          <FootprintForm
-            formSubmit={this.updateItem}
-            updateInput={this.updateInput}
-            setEditedItem={this.setEditedItem}
-            type="Update"
-            {...this.state}
-          />
-        ) : (
-          <FootprintForm
-            formSubmit={this.addItem}
-            updateInput={this.updateInput}
-            setEditedItem={this.setEditedItem}
-            type="Add"
-            {...this.state}
-          />
-        )}
-
+        <div className="footprint-form-wrapper">
+          {this.state.editedItem ? (
+            <FootprintForm
+              formSubmit={this.updateItem}
+              updateInput={this.updateInput}
+              setEditedItem={this.setEditedItem}
+              type="Update"
+              {...this.state}
+            />
+          ) : (
+            <FootprintForm
+              formSubmit={this.addItem}
+              updateInput={this.updateInput}
+              setEditedItem={this.setEditedItem}
+              type="Add"
+              {...this.state}
+            />
+          )}
+        </div>
         <ul className="list-render">
           {this.state.list.map(item => (
-            <li key={item.id}>
-              <div className="master-list">
-                <div className="master-items">
-                  <div className="list-items">
-                    <p>Product Name</p>
+            <li className="master-list" key={item.id}>
+              <div className="master-items">
+                <div className="list-items">
+                  <p className="list-title">Product Name</p>
 
-                    {item.product_name}
-                  </div>
-                  <div className="list-items">
-                    <p>Date Purchased</p>
+                  {item.product_name}
+                </div>
+                <div className="list-items">
+                  <p className="list-title">Date Purchased</p>
 
-                    {item.date_purchased}
-                  </div>
-                  <div className="list-items">
-                    <p>Date of Sale</p>
+                  {item.date_purchased}
+                </div>
+                <div className="list-items">
+                  <p className="list-title">Date of Sale</p>
 
-                    {item.date_sold}
-                  </div>
-                  <div className="list-items">
-                    <p>Purchase Price</p>${item.purchase_price}
-                  </div>
-                  <div className="list-items">
-                    <p>Selling Price</p>${item.sold_price}
-                  </div>
+                  {item.date_sold}
+                </div>
+                <div className="list-items">
+                  <p className="list-title">Purchase Price</p>$
+                  {item.purchase_price}
+                </div>
+                <div className="list-items">
+                  <p className="list-title">Selling Price</p>${item.sold_price}
+                </div>
 
-                  <div className="delete-section">
-                    <button
-                      className="edit-button"
-                      onClick={() => {
-                        this.editItem(item.id);
-                      }}
-                    >
-                      Edit
-                    </button>
+                <div className="delete-section">
+                  <button
+                    className="edit-button"
+                    onClick={() => {
+                      this.editItem(item.id);
+                    }}
+                  >
+                    Edit
+                  </button>
 
-                    <button
-                      className="delete-button"
-                      onClick={() => {
-                        if (
-                          window.confirm(
-                            "Are you sure you want to delete your Footprint?"
-                          )
+                  <button
+                    className="delete-button"
+                    onClick={() => {
+                      if (
+                        window.confirm(
+                          "Are you sure you want to delete your Footprint?"
                         )
-                          this.deleteItem(item.id);
-                      }}
-                    >
-                      X
-                    </button>
-                  </div>
+                      )
+                        this.deleteItem(item.id);
+                    }}
+                  >
+                    X
+                  </button>
                 </div>
               </div>
             </li>
           ))}
         </ul>
+        <Footer />
       </main>
     );
   }

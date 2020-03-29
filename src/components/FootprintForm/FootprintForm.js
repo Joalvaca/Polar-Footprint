@@ -83,7 +83,7 @@ export default class FootprintForm extends React.Component {
             </button>
             {this.props.type === "Update" ? (
               <button
-                className="add-button"
+                className="cancel-button"
                 type="button"
                 onClick={() => this.props.setEditedItem(null)}
               >

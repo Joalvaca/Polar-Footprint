@@ -15,7 +15,7 @@ class LoginForm extends React.Component {
   state = { loading: false, error: null };
 
   handleLoginSuccess = () => {
-    this.props.history.push("/intro");
+    this.props.history.push("/Footprints");
   };
 
   handleSubmitJwtAuth = ev => {
@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
             <h1 className="register-link">Register</h1>
           </Link>
           <Link style={{ textDecoration: "none" }} to="/login">
-            <h1 className="login-link">login</h1>
+            <h1 className="login-link">Login</h1>
           </Link>
         </div>
         <div className="logo-container">

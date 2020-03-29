@@ -18,20 +18,17 @@
 .register-button {
   width: 100%;
   margin-top: 15px;
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
-  background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-  background-color: #ffffff;
+  background-color: white;
   border-radius: 6px;
-  border: 1px solid #dcdcdc;
+  border: 2px solid black;
   display: inline-block;
   cursor: pointer;
   color: black;
   font-family: Arial;
   font-size: 15px;
-  font-weight: bold;
   padding: 8px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #ffffff;
+  letter-spacing: 2px;
 }
 .register-label {
   font-size: 20px;
@@ -44,6 +41,9 @@
 }
 .register-logo {
   max-width: 30%;
+}
+.register-button:hover {
+  background-color: green;
 }
 @media (max-width: 780px) {
   .register-label {

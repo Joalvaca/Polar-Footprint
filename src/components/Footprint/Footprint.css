@@ -1,5 +1,9 @@
 .list-render {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 90%;
 }
 .list-items {
   color: white;
@@ -7,13 +11,14 @@
   justify-content: center;
 }
 .master-list {
-  display: flex;
-  justify-content: center;
+  color: white;
+  margin: 5px;
+  display: inline-block;
 }
 .master-items {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   border: 1px solid black;
   margin: 5px;
   background-color: #000000;
@@ -50,9 +55,8 @@
 }
 .edit-button,
 .add-button,
-.delete-button {
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
-  background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+.delete-button,
+.cancel-button {
   background-color: #ffffff;
   border-radius: 6px;
   border: 1px solid #dcdcdc;
@@ -65,7 +69,19 @@
   padding: 10px;
   margin: 10px 5px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #ffffff;
+}
+.add-button {
+  background-color: green;
+  color: black;
+  letter-spacing: 2px;
+  border: 2px solid black;
+  font-weight: 600;
+}
+.delete-button,
+.cancel-button {
+  background-color: red;
+  color: #000000;
+  border: 2px solid black;
 }
 ::placeholder {
   color: white;
@@ -90,14 +106,12 @@
   box-shadow: 0px 0px 12px rgba(66, 66, 66, 0.52);
 }
 .polar-block-pic {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   margin-top: 20px;
 }
 .polar-block {
-  display: flex;
   flex-direction: row;
-  max-width: 20%;
+  max-width: 15%;
   border: 2px solid white;
   border-radius: 50%;
 }
@@ -105,6 +119,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.list-title {
+  color: #25aae1;
 }
 
 @media (max-width: 780px) {
@@ -116,27 +133,10 @@
   .add-button {
     margin: 5px 20px;
   }
-  .edit-button,
-  .delete-button {
-    padding: 10px;
-    margin: 10px 5px;
-  }
+
   .delete-section {
     padding: 6px;
   }
-  .master-items {
-    display: flex;
-    flex-direction: row;
-    margin-right: 50px;
-    padding: 5px;
-  }
-  .list-items {
-    margin: 8px;
-    text-align: center;
-  }
-}
-
-@media (max-width: 600px) {
   .list-items {
     display: flex;
     flex-direction: column;
@@ -151,7 +151,9 @@
     margin: 10px 5px;
     padding: 7px;
   }
-
+  .cancel-button {
+    margin: 5px 20px;
+  }
   .master-items {
     margin-right: 45px;
     padding: 5px;

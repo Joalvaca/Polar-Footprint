@@ -1,11 +1,9 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Intro from "./components/Intro/Intro";
+
 import Homepage from "./components/Homepage/Homepage";
 import Footprint from "./components/Footprint/Footprint";
-import Contact from "./components/Contact/Contact";
-import Resell from "./components/Resell/Resell";
 import LoginForm from "./components/LoginForm/LoginForm";
 import RegistrationForm from "./components/RegistrationForm/RegistrationFrom";
 
@@ -21,23 +19,12 @@ function App() {
       <Route exact path="/">
         <Homepage />
       </Route>
-
-      <Route
-        path={["/intro", "/footprints", "/contact", "/resell"]}
-        component={Header}
-      />
-
+      <Route path={["/footprints"]} component={Header} />
       <Route path="/login" component={LoginForm} />
 
       <Route path="/register" component={RegistrationForm} />
 
-      <PrivateRoute exact path="/intro" component={Intro} />
-      <PrivateRoute path="/intro/:intro_id" component={Intro} />
-
       <PrivateRoute path="/footprints" component={Footprint} />
-
-      <PrivateRoute path="/contact" component={Contact} />
-      <PrivateRoute path="/resell" component={Resell} />
     </div>
   );
 }

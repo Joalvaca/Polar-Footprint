@@ -1,7 +1,6 @@
 .enter-box {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 .password-box {
   margin-right: 15px;
@@ -10,20 +9,28 @@
 .password-box:hover {
   color: black;
 }
-.logo-container {
+.homepage-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10%;
+  margin: auto;
 }
 .homepage-logo-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   font-size: 40px;
   letter-spacing: 3px;
   color: white;
   margin-bottom: 20px;
 }
 .homepage-logo {
-  max-width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.polar-logo {
+  max-width: 40%;
 }
 .homepage-intro {
   text-align: center;
@@ -34,15 +41,34 @@
   color: white;
   width: 80%;
 }
+.home-links {
+  display: flex;
+  margin-right: 5px;
+}
+
+.sneaker-image {
+  max-width: 50%;
+  margin: 20px;
+}
+.homepage-image {
+  text-align: center;
+}
 
 @media (max-width: 600px) {
   .homepage-logo {
-    max-width: 50%;
+    max-width: 20%;
   }
   .homepage-intro {
     font-size: 15px;
   }
   .homepage-logo-name {
     font-size: 27px;
+  }
+  .polar-logo {
+    max-width: 80%;
+  }
+  .login-link,
+  .register-link {
+    font-size: 25px;
   }
 }
