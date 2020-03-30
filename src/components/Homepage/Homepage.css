@@ -24,11 +24,7 @@
   color: white;
   margin-bottom: 20px;
 }
-.homepage-logo {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
+
 .polar-logo {
   max-width: 40%;
 }
