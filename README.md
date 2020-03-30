@@ -23,4 +23,4 @@ password: Testuser1!
 
 ![PolarHomepage](https://github.com/Joalvaca/Polar-Footprint/raw/master/src/images/polarhomepage.jpg)
 
-![Polar Intro](https://github.com/Joalvaca/Polar-app/raw/master/src/images/polarform.jpg)
+![Polar Intro](https://github.com/Joalvaca/Polar-Footprint/raw/master/src/images/polarform.jpg)
