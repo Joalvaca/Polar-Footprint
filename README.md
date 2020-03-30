@@ -21,6 +21,6 @@ password: Testuser1!
 
 ## Polar App
 
-![Polar Intro](https://github.com/Joalvaca/Polar-app/raw/master/src/images/polar-form.jpg)
+![Polar Intro](https://github.com/Joalvaca/Polar-app/raw/master/src/images/polarform.jpg)
 
-![Polar Form](https://github.com/Joalvaca/Polar-app/raw/master/src/images/polar-homepage.jpg)
+![Polar Form](https://github.com/Joalvaca/Polar-app/raw/master/src/images/polarhomepage.jpg)
