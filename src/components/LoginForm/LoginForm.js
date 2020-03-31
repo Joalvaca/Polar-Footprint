@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault();
-    this.setState({ error: null });
+    this.setState({ error: null, loading: true });
     const { user_name, password } = ev.target;
     AuthApiService.postLogin({
       user_name: user_name.value,
@@ -34,7 +34,7 @@ class LoginForm extends React.Component {
         this.handleLoginSuccess();
       })
       .catch(res => {
-        this.setState({ error: res.error });
+        this.setState({ error: res.error, loading: false });
       });
   };
 
@@ -51,33 +51,39 @@ class LoginForm extends React.Component {
         </div>
         <div className="logo-container">
           <img className="login-logo" src={Logo} alt="logo"></img>
-          <div>
-            <div className="demo">Demo Credentials: Testuser / Testuser1!</div>
-            <form onSubmit={this.handleSubmitJwtAuth}>
-              <div className="login-form">
-                <div className="login-inputs">
-                  <p className="error">{this.state.error}</p>
-                  <label className="label-text">Username:</label>
-                  <input
-                    className="form-box"
-                    required
-                    name="user_name"
-                    type="text"
-                  ></input>
-                  <label className="label-text">Password:</label>
-                  <input
-                    className="form-box"
-                    required
-                    name="password"
-                    type="password"
-                  ></input>
-                  <button className="login-button" type="submit">
-                    Login
-                  </button>
-                </div>
+          {this.state.loading ? (
+            "Loading..."
+          ) : (
+            <div>
+              <div className="demo">
+                Demo Credentials: Testuser / Testuser1!
               </div>
-            </form>
-          </div>
+              <form onSubmit={this.handleSubmitJwtAuth}>
+                <div className="login-form">
+                  <div className="login-inputs">
+                    <p className="error">{this.state.error}</p>
+                    <label className="label-text">Username:</label>
+                    <input
+                      className="form-box"
+                      required
+                      name="user_name"
+                      type="text"
+                    ></input>
+                    <label className="label-text">Password:</label>
+                    <input
+                      className="form-box"
+                      required
+                      name="password"
+                      type="password"
+                    ></input>
+                    <button className="login-button" type="submit">
+                      Login
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          )}
         </div>
       </div>
     );
